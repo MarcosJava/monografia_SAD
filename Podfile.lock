@@ -1,13 +1,10 @@
 PODS:
-  - Alamofire (4.0.1)
   - Bolts (1.8.4):
     - Bolts/AppLinks (= 1.8.4)
     - Bolts/Tasks (= 1.8.4)
   - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
-  - Bond (5.0.0-beta10):
-    - ReactiveKit (~> 3.0.0-beta6)
   - FacebookCore (0.2.0):
     - Bolts (~> 1.8)
     - FBSDKCoreKit (~> 4.15)
@@ -28,19 +25,18 @@ PODS:
   - FBSDKShareKit (4.16.1):
     - FBSDKCoreKit
   - Marshal (1.0.1)
-  - ModelMapper (5.0.0)
-  - ReactiveKit (3.0.0-beta6)
-  - SwiftyJSON (3.1.1)
+  - Realm (2.0.3):
+    - Realm/Headers (= 2.0.3)
+  - Realm/Headers (2.0.3)
+  - RealmSwift (2.0.3):
+    - Realm (= 2.0.3)
 
 DEPENDENCIES:
-  - Alamofire
-  - Bond (~> 5.0.0-beta10)
   - FacebookCore
   - FacebookLogin
   - FacebookShare
   - Marshal (from `https://github.com/utahiosmac/Marshal.git`)
-  - ModelMapper
-  - SwiftyJSON
+  - RealmSwift
 
 EXTERNAL SOURCES:
   Marshal:
@@ -52,9 +48,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/utahiosmac/Marshal.git
 
 SPEC CHECKSUMS:
-  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
-  Bond: 3dfbdcbf3a69889056281e0d3c1992b2a12c4dc0
   FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
   FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
   FacebookShare: 8e9ee8ea06505e6a1d3d719b0cc63e840fb8aaeb
@@ -62,10 +56,9 @@ SPEC CHECKSUMS:
   FBSDKLoginKit: 469a56cebe2e1ed62b1621d0b155970fd6aac2d8
   FBSDKShareKit: 53af0239b5bd2ebf191f32f75991245a208cc982
   Marshal: 1cfdb9bffc040714fba95e3782cbfc15c44adabd
-  ModelMapper: 89ced1f51ec6360e93f6889d08c818d4cad526a3
-  ReactiveKit: 6e868a8bf896714e8ea9ee9083b8ff89ca0dc792
-  SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
+  Realm: 5f008bfe3c8c47142eddfc30b8c1584cde22db24
+  RealmSwift: 5afb451f65b682242f272dbb52d5c6f6e343c980
 
-PODFILE CHECKSUM: 41640ffab4f287446d40a661082f5d958be753e0
+PODFILE CHECKSUM: d10b5f1e7071d12d260e8e6d5da60e657ab50760
 
 COCOAPODS: 1.1.0

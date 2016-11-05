@@ -2,34 +2,28 @@
 //  Usuario.swift
 //  SAD
 //
-//  Created by Marcos Felipe Souza on 19/10/16.
+//  Created by Marcos Felipe Souza on 03/11/16.
 //  Copyright © 2016 Marcos. All rights reserved.
 //
 
 import Foundation
-import Marshal
+import RealmSwift
 
-public struct Usuario {
-    
-    let email: String
-    let nome: String
-    let urlFoto: String?
-    
-    //import Mapper
+class Usuario: Object {
+    dynamic var id = 1
+    dynamic var email = ""
+    dynamic var senha = ""
+    dynamic var logado = false
 
-//    init(map: Mapper) throws {
-//        try email = map.from("email")
-//        try nome = map.from("name")
-//        urlFoto = map.optionalFrom("url")
+    
+//    override static func ignoredProperties() -> [String] {
+//        return ["id"]
 //    }
-    
-}
-
-extension Usuario: Unmarshaling {
-   
-    public init(object json:MarshaledObject) throws {
-        email = try! json.value(for: "email")
-        nome = try! json.value(for: "name")
-        urlFoto = try json.value(for: "picture.data.url")
+//    
+    override static func primaryKey() -> String? {
+        return "id"
     }
+    
+    
+    
 }

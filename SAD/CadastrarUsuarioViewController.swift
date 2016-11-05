@@ -11,28 +11,31 @@ import UIKit
 class CadastrarUsuarioViewController: UIViewController {
     
     var colors:Colors = Colors()
+    var usuarioDTO = UsuarioDTO()
+    var usuarioDAO = UsuarioDAO()
+    var count = 0
+    
     
     let EMAIL = "Inserir seu e-mail"
     let SENHA = "Inserir uma senha"
     let CONFIRMACAO_SENHA = "Confirme a senha anterior"
     let PARABENS = "Parabens por realizar nosso cadastro."
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setEmailView()
-    }
-
     @IBOutlet weak var txtInformativo: UILabel!
     @IBOutlet weak var txtResposta: UITextField!
     @IBOutlet weak var lbError: UILabel!
     
-    var senha = ""
-    var count = 0
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setEmailView()
+        super.hideKeyboardWhenTappedAround()
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
     @IBAction func voltar(_ sender: Any) {
         goPrincipal()
     }
@@ -53,54 +56,24 @@ class CadastrarUsuarioViewController: UIViewController {
                 
             } else if(txtInformativo.text?.caseInsensitiveCompare(PARABENS) == ComparisonResult.orderedSame){
                 goPrincipal()
-                
+                salvarUsuario()
             }
         }
         
     }
     
-    func validaEmail(){
-        let emailCorreto = Validador().emailValido(email: txtResposta.text!)
-        if(emailCorreto) {
-            setSenhaView();
-        } else {
-            showErro(msg: "Email esta fora do padrão")
-            
-        }
+    func salvarUsuario(){
+        usuarioDAO.salvarUsuario(usuarioDTO: usuarioDTO)
+        usuarioDAO.ultimoID()
     }
     
-    func validaSenha(){
-        
-        if txtResposta.text != nil {
-            self.senha = txtResposta.text!
-            if senha.characters.count > 4 {
-                setConfirmaSenhaView()
-            }else {
-                showErro(msg: "Senha deve ter mais que 4 digitos")
-            }
-            
-        }
-    }
-    
-    func validaConfirmaSenha(){
-        if(senha.caseInsensitiveCompare(txtResposta.text!) == ComparisonResult.orderedSame){
-            setParabensView()
-       
-        } else {
-            count += 1
-            showErro(msg: "Senha deve ser igual a anterior, apos erra mais \(3 - count) vezes voltara a primeira senha.")
-            if (count == 3){
-                setSenhaView()
-            }
-            
-        }
-    }
     
     func goPrincipal() -> Void {
         self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
 
     }
     
+       
     func showErro(msg: String ){
         
         self.lbError.alpha = 0
@@ -119,6 +92,60 @@ class CadastrarUsuarioViewController: UIViewController {
     }
     
 }
+
+
+
+//VALIDACOES --
+extension CadastrarUsuarioViewController {
+    
+    func validaEmail(){
+        let emailCorreto = Validador().emailValido(email: txtResposta.text!)
+        
+        if(emailCorreto) {
+            usuarioDTO.email = self.txtResposta.text!
+            setSenhaView();
+            
+        } else {
+            showErro(msg: "Email esta fora do padrão")
+            
+        }
+    }
+    
+    func validaSenha(){
+        
+        if txtResposta.text != nil {
+            self.usuarioDTO.senha = txtResposta.text!
+            if self.usuarioDTO.senha.characters.count > 4 {
+                setConfirmaSenhaView()
+            }else {
+                showErro(msg: "Senha deve ter mais que 4 digitos")
+            }
+            
+        }
+    }
+    
+    func validaConfirmaSenha(){
+        let senha = self.usuarioDTO.senha
+        
+        if(senha.caseInsensitiveCompare(txtResposta.text!) == ComparisonResult.orderedSame){
+            setParabensView()
+            
+        } else {
+            count += 1
+            showErro(msg: "Senha deve ser igual a anterior.")
+            if (count == 3){
+                setSenhaView()
+            }
+            
+        }
+    }
+
+}
+
+
+
+
+
 
 
 //View e Cores
@@ -144,7 +171,7 @@ extension CadastrarUsuarioViewController {
         txtResposta.isSecureTextEntry = true
         txtResposta.keyboardType = UIKeyboardType.default
         lbError.isHidden = true
-        
+        self.usuarioDTO.senha = ""
     }
     
     func setConfirmaSenhaView() {
