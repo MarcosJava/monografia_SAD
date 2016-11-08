@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class UsuarioDAO: RealmAbstract {
+class UsuarioManager {
     
     
     
@@ -19,31 +19,25 @@ class UsuarioDAO: RealmAbstract {
         usuario.senha = usuarioDTO.senha
         usuario.logado = usuarioDTO.logado
         usuario.id = 1
-        
-        do {
-            let realm = try! Realm()
-            try! realm.write {
-                realm.add(usuario)
-            }
-
-        } catch let error as NSError {
-            print(error)
-        }
-        
+        usuario.save()
         
         return usuarioDTO
     }
     
-    func ultimoID() -> Void {
+    func listaTodos() -> Array<Usuario> {
+        
+        var usuarios = Array<Usuario>()
         
         do {
-            let realm = try Realm()  //Realm(configuration: config)
+            let realm = try Realm() //try Realm(configuration: config)
             debugPrint("Path to realm file: " + realm.configuration.fileURL!.absoluteString)
-            let usuarios = realm.objects(Usuario.self).filter("id > 0") // retrieves all Dogs from the default Realm
+            usuarios = Array(realm.objects(Usuario.self).filter("id > 0"))
             print(usuarios[0].email)
-            
+            return usuarios
+        
         } catch let error as NSError {
             print(error)
+            return usuarios
         }
     }
     

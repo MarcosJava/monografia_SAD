@@ -15,6 +15,7 @@ target 'SAD' do
     pod 'Marshal', :git => 'https://github.com/utahiosmac/Marshal.git'
 #    pod 'RealmSwift', :git => 'https://github.com/realm/realm-cocoa.git', :branch => 'master', :submodules => true
     pod 'RealmSwift'
+    pod 'Charts', :git => 'https://github.com/danielgindi/Charts.git', :branch => 'master'
 end
 
 post_install do |installer|

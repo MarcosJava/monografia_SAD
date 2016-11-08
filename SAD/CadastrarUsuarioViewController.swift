@@ -12,7 +12,7 @@ class CadastrarUsuarioViewController: UIViewController {
     
     var colors:Colors = Colors()
     var usuarioDTO = UsuarioDTO()
-    var usuarioDAO = UsuarioDAO()
+    var usuarioDAO = UsuarioManager()
     var count = 0
     
     
@@ -64,7 +64,7 @@ class CadastrarUsuarioViewController: UIViewController {
     
     func salvarUsuario(){
         usuarioDAO.salvarUsuario(usuarioDTO: usuarioDTO)
-        usuarioDAO.ultimoID()
+        usuarioDAO.listaTodos()
     }
     
     

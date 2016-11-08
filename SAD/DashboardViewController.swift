@@ -9,30 +9,34 @@
 import UIKit
 import FacebookCore
 import FacebookLogin
+import Charts
+
 
 class DashboardViewController: UIViewController {
 
+    @IBOutlet weak var barView: BarChartView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let request = GraphRequest(graphPath: "me", parameters: ["fields":"email,name,picture"], accessToken: AccessToken.current, httpMethod: .GET, apiVersion: FacebookCore.GraphAPIVersion.defaultVersion)
-        request.start { (response, result) in
-            
-            switch result {
-            case .success(let value):
-                print("Xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
-                print(value.dictionaryValue)
-                print("Xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
-            case .failed(let error):
-                print(error)
-            }
-        }
-
+        updateChartWithData()
+    
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func updateChartWithData() {
+        var dataEntries: [BarChartDataEntry] = []
+        
+        for i in 0..<25 {
+            let dataEntry = BarChartDataEntry(x: Double(i), y: Double(25))
+            dataEntries.append(dataEntry)
+        }
+        let chartDataSet = BarChartDataSet(values: dataEntries, label: "Visitor count")
+        let chartData = BarChartData(dataSet: chartDataSet)
+        barView.data = chartData
     }
     
 

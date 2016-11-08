@@ -13,14 +13,14 @@ import FacebookLogin
 
 class ViewController: UIViewController{
 
-    var usuarioDAO:UsuarioDAO!
+    var usuarioDAO:UsuarioManager!
     
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtSenha: UITextField!
     @IBOutlet weak var btnEntrar: UIButton!
     
     override func viewDidLoad() {
-        usuarioDAO = UsuarioDAO()
+        usuarioDAO = UsuarioManager()
         hideKeyboardWhenTappedAround()
         arredondarButton()
     }
@@ -30,7 +30,19 @@ class ViewController: UIViewController{
     }
     
     @IBAction func entrar(_ sender: Any) {
-        usuarioDAO.ultimoID()
+        
+        if txtEmail != nil && txtSenha != nil{
+            if txtEmail.text != nil && txtSenha.text != nil {
+                let usuario = Usuario()
+                let valor = usuario.contemUsuario(email: txtEmail.text!, senha: txtSenha.text!)
+                if(valor){
+                    irDashboard()
+                }
+                
+                
+            }
+        }
+        
         
     }
     

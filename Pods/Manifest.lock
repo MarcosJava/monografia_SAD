@@ -5,6 +5,9 @@ PODS:
   - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
+  - Charts (3.0.0):
+    - Charts/Core (= 3.0.0)
+  - Charts/Core (3.0.0)
   - FacebookCore (0.2.0):
     - Bolts (~> 1.8)
     - FBSDKCoreKit (~> 4.15)
@@ -18,11 +21,11 @@ PODS:
     - FacebookCore (~> 0.2)
     - FBSDKCoreKit (~> 4.15)
     - FBSDKShareKit (~> 4.15)
-  - FBSDKCoreKit (4.16.0):
+  - FBSDKCoreKit (4.17.0):
     - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.16.1):
+  - FBSDKLoginKit (4.17.0):
     - FBSDKCoreKit
-  - FBSDKShareKit (4.16.1):
+  - FBSDKShareKit (4.17.0):
     - FBSDKCoreKit
   - Marshal (1.0.1)
   - Realm (2.0.3):
@@ -32,6 +35,7 @@ PODS:
     - Realm (= 2.0.3)
 
 DEPENDENCIES:
+  - Charts (from `https://github.com/danielgindi/Charts.git`, branch `master`)
   - FacebookCore
   - FacebookLogin
   - FacebookShare
@@ -39,26 +43,33 @@ DEPENDENCIES:
   - RealmSwift
 
 EXTERNAL SOURCES:
+  Charts:
+    :branch: master
+    :git: https://github.com/danielgindi/Charts.git
   Marshal:
     :git: https://github.com/utahiosmac/Marshal.git
 
 CHECKOUT OPTIONS:
+  Charts:
+    :commit: ff0ef313b7a8a3459e03b4219120a46ecfdc5385
+    :git: https://github.com/danielgindi/Charts.git
   Marshal:
-    :commit: 282cdc05d08175aba4d02328d9dcf3736d56e3e2
+    :commit: ba0c55e5edfc216aae486229f6f5456ce3db4473
     :git: https://github.com/utahiosmac/Marshal.git
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  Charts: 3f0da988b104c8e5f069fcef55da699f597dac67
   FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
   FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
   FacebookShare: 8e9ee8ea06505e6a1d3d719b0cc63e840fb8aaeb
-  FBSDKCoreKit: 7a6baaed4a2b2a244ba253346713bdbc74df135b
-  FBSDKLoginKit: 469a56cebe2e1ed62b1621d0b155970fd6aac2d8
-  FBSDKShareKit: 53af0239b5bd2ebf191f32f75991245a208cc982
+  FBSDKCoreKit: 30a21d2d7b92984b3d80497113433c00824c35e9
+  FBSDKLoginKit: 42b7129ac0373ca99eaf4cbebf4d07bd42371f59
+  FBSDKShareKit: 9b573d03fbee36cbaf42d5bb1f2bc019e0d72347
   Marshal: 1cfdb9bffc040714fba95e3782cbfc15c44adabd
   Realm: 5f008bfe3c8c47142eddfc30b8c1584cde22db24
   RealmSwift: 5afb451f65b682242f272dbb52d5c6f6e343c980
 
-PODFILE CHECKSUM: d10b5f1e7071d12d260e8e6d5da60e657ab50760
+PODFILE CHECKSUM: f882ef41be194a6193c49c21b29eaccb9cef1f9c
 
 COCOAPODS: 1.1.0
