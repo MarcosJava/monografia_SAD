@@ -12,22 +12,35 @@ import FacebookLogin
 
 
 class ViewController: UIViewController{
-
-    var usuarioDAO:UsuarioManager!
     
+    @IBOutlet weak var txtError: UILabel!
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtSenha: UITextField!
     @IBOutlet weak var btnEntrar: UIButton!
     
     override func viewDidLoad() {
-        usuarioDAO = UsuarioManager()
         hideKeyboardWhenTappedAround()
         arredondarButton()
+        
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let usuario = Usuario()
+        _ = usuario.hasUsuarioLogado()
+        
+        if usuario.logado {
+            print(usuario)
+            usuarioDTO = UsuarioDTO(with: usuario)
+            irDashboard()
+        }
+    }
+    
+    
     
     func arredondarButton() -> Void {
         btnEntrar.layer.cornerRadius = 5
     }
+    
     
     @IBAction func entrar(_ sender: Any) {
         
@@ -35,22 +48,34 @@ class ViewController: UIViewController{
             if txtEmail.text != nil && txtSenha.text != nil {
                 let usuario = Usuario()
                 let valor = usuario.contemUsuario(email: txtEmail.text!, senha: txtSenha.text!)
+                
+                print("contem usuario : \(valor) do usuario \(usuario)" )
+                
                 if(valor){
+                    usuario.putUsuarioLogado()
                     irDashboard()
+                } else {
+                    
+                    showError()
                 }
                 
-                
+            } else {
+                showError()
             }
+            
+        } else {
+            showError()
         }
         
         
     }
     
-    
-    @IBAction func cadastrar(_ sender: Any) {
+    func showError() {
+        self.txtError.isHidden = false
+        self.txtError.boingView()
         
     }
-    
+  
     func irDashboard() -> Void {
         self.performSegue(withIdentifier: "goDashboard", sender: nil)
     }

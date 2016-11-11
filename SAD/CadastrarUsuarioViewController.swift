@@ -12,7 +12,7 @@ class CadastrarUsuarioViewController: UIViewController {
     
     var colors:Colors = Colors()
     var usuarioDTO = UsuarioDTO()
-    var usuarioDAO = UsuarioManager()
+    //var usuarioRealm = UsuarioRealm()
     var count = 0
     
     
@@ -37,7 +37,7 @@ class CadastrarUsuarioViewController: UIViewController {
     }
     
     @IBAction func voltar(_ sender: Any) {
-        goPrincipal()
+        goInicial()
     }
     
     @IBAction func proximo(_ sender: Any) {
@@ -55,7 +55,7 @@ class CadastrarUsuarioViewController: UIViewController {
                 validaConfirmaSenha()
                 
             } else if(txtInformativo.text?.caseInsensitiveCompare(PARABENS) == ComparisonResult.orderedSame){
-                goPrincipal()
+                goInicial()
                 salvarUsuario()
             }
         }
@@ -63,15 +63,12 @@ class CadastrarUsuarioViewController: UIViewController {
     }
     
     func salvarUsuario(){
-        usuarioDAO.salvarUsuario(usuarioDTO: usuarioDTO)
-        usuarioDAO.listaTodos()
+        let usuario = usuarioDTO.parserToEntity()
+        usuario.save()
     }
     
     
-    func goPrincipal() -> Void {
-        self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
-
-    }
+    
     
        
     func showErro(msg: String ){
@@ -80,14 +77,8 @@ class CadastrarUsuarioViewController: UIViewController {
         self.lbError.isHidden = false
         self.lbError.text = msg
         
-        UIView.animate(withDuration: 1, animations: {
-            self.lbError.alpha = 1
-        }) { (finished) in
-            
-            UIView.animate(withDuration: 7) {
-                self.lbError.alpha = 0
-            }
-        }
+        self.lbError.fadeInFadeOut(time: 1, secondTime: 7)
+        
         
     }
     

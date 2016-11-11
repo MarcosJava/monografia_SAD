@@ -1,8 +1,8 @@
 //
-//  UIViewControllerExtension.swift
+//  UIViewController+Keyboard.swift
 //  SAD
 //
-//  Created by Marcos Felipe Souza on 02/11/16.
+//  Created by Marcos Felipe Souza on 11/11/16.
 //  Copyright © 2016 Marcos. All rights reserved.
 //
 
@@ -18,5 +18,9 @@ extension UIViewController {
     
     func dismissKeyboard() {
         view.endEditing(true)
+    }
+    
+    func goInicial() -> Void {
+        self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
     }
 }

@@ -51,7 +51,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Charts:
-    :commit: ff0ef313b7a8a3459e03b4219120a46ecfdc5385
+    :commit: e157fe8410119b99bf1cb99ede8d195ab725a985
     :git: https://github.com/danielgindi/Charts.git
   Marshal:
     :commit: ba0c55e5edfc216aae486229f6f5456ce3db4473

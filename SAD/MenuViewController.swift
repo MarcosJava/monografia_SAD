@@ -25,12 +25,29 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "Cell")
+        
+        if indexPath.row == 0 {
+            cell.textLabel?.isEnabled = false
+        }
+        
         cell.textLabel?.text = arrayMenu[indexPath.row]
+        cell.textLabel?.font = UIFont(name: "Avenir Next", size:15)
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayMenu.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if self.arrayMenu[indexPath.row] == "Realizar Exame" {
+            goRealizarExames()
+        }
+        self.tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func goRealizarExames(){
+        self.performSegue(withIdentifier: "goRealizarExame", sender: nil)
     }
     
 }
