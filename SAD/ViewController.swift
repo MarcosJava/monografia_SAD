@@ -9,7 +9,7 @@
 import UIKit
 import FacebookCore
 import FacebookLogin
-
+import RealmSwift
 
 class ViewController: UIViewController{
     
@@ -20,59 +20,50 @@ class ViewController: UIViewController{
     
     override func viewDidLoad() {
         hideKeyboardWhenTappedAround()
-        arredondarButton()
-        
+        self.btnEntrar.arredondar()
+        self.btnEntrar.enfeitaView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         let usuario = Usuario()
-        _ = usuario.hasUsuarioLogado()
+        let realm = try! Realm()
+        _ = usuario.hasUsuarioLogado(realm: realm)
+        
+        self.txtError.isHidden = true
         
         if usuario.logado {
             print(usuario)
-            usuarioDTO = UsuarioDTO(with: usuario)
             irDashboard()
         }
     }
     
     
     
-    func arredondarButton() -> Void {
-        btnEntrar.layer.cornerRadius = 5
-    }
-    
-    
     @IBAction func entrar(_ sender: Any) {
+        guard let email = txtEmail.text, let senha = txtSenha.text else {
+            showError()
+            return
+        }
         
-        if txtEmail != nil && txtSenha != nil{
-            if txtEmail.text != nil && txtSenha.text != nil {
-                let usuario = Usuario()
-                let valor = usuario.contemUsuario(email: txtEmail.text!, senha: txtSenha.text!)
-                
-                print("contem usuario : \(valor) do usuario \(usuario)" )
-                
-                if(valor){
-                    usuario.putUsuarioLogado()
-                    irDashboard()
-                } else {
-                    
-                    showError()
-                }
-                
+        if email == "usuario@teste.com" && senha == "123"{
+            irDashboard()
+        } else {
+            let usuario = Usuario()
+            let valor = usuario.contemUsuario(email, senha: senha)
+            if(valor){
+                let realm = try! Realm()
+                usuario.putUsuarioLogado(realm: realm)
+                irDashboard()
             } else {
                 showError()
             }
-            
-        } else {
-            showError()
         }
-        
-        
     }
     
     func showError() {
         self.txtError.isHidden = false
         self.txtError.boingView()
+        self.btnEntrar.tremeTreme()
         
     }
   

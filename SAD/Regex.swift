@@ -15,7 +15,7 @@ class Validador {
     
     let REGEX_EMAIL = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
     
-    func emailValido(email: String) -> Bool {
+    func emailValido(_ email: String) -> Bool {
         
         let regex = try! NSRegularExpression(pattern: REGEX_EMAIL, options: .caseInsensitive)
 

@@ -11,9 +11,8 @@ import UIKit
 class CadastrarUsuarioViewController: UIViewController {
     
     var colors:Colors = Colors()
-    var usuarioDTO = UsuarioDTO()
-    //var usuarioRealm = UsuarioRealm()
     var count = 0
+    var usuario:Usuario!
     
     
     let EMAIL = "Inserir seu e-mail"
@@ -28,6 +27,7 @@ class CadastrarUsuarioViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.usuario = Usuario()
         setEmailView()
         super.hideKeyboardWhenTappedAround()
     }
@@ -63,22 +63,17 @@ class CadastrarUsuarioViewController: UIViewController {
     }
     
     func salvarUsuario(){
-        let usuario = usuarioDTO.parserToEntity()
+        usuario.logado = true
         usuario.save()
     }
-    
-    
-    
-    
        
-    func showErro(msg: String ){
+    func showErro(_ msg: String ){
         
         self.lbError.alpha = 0
         self.lbError.isHidden = false
         self.lbError.text = msg
         
-        self.lbError.fadeInFadeOut(time: 1, secondTime: 7)
-        
+        self.lbError.fadeInFadeOut(1, secondTime: 7)
         
     }
     
@@ -90,14 +85,14 @@ class CadastrarUsuarioViewController: UIViewController {
 extension CadastrarUsuarioViewController {
     
     func validaEmail(){
-        let emailCorreto = Validador().emailValido(email: txtResposta.text!)
+        let emailCorreto = Validador().emailValido(txtResposta.text!)
         
         if(emailCorreto) {
-            usuarioDTO.email = self.txtResposta.text!
+            usuario.email = self.txtResposta.text!
             setSenhaView();
             
         } else {
-            showErro(msg: "Email esta fora do padrão")
+            showErro("Email esta fora do padrão")
             
         }
     }
@@ -105,25 +100,25 @@ extension CadastrarUsuarioViewController {
     func validaSenha(){
         
         if txtResposta.text != nil {
-            self.usuarioDTO.senha = txtResposta.text!
-            if self.usuarioDTO.senha.characters.count > 4 {
+            self.usuario.senha = txtResposta.text!
+            if self.usuario.senha.characters.count > 4 {
                 setConfirmaSenhaView()
             }else {
-                showErro(msg: "Senha deve ter mais que 4 digitos")
+                showErro("Senha deve ter mais que 4 digitos")
             }
             
         }
     }
     
     func validaConfirmaSenha(){
-        let senha = self.usuarioDTO.senha
+        let senha = self.usuario.senha
         
         if(senha.caseInsensitiveCompare(txtResposta.text!) == ComparisonResult.orderedSame){
             setParabensView()
             
         } else {
             count += 1
-            showErro(msg: "Senha deve ser igual a anterior.")
+            showErro("Senha deve ser igual a anterior.")
             if (count == 3){
                 setSenhaView()
             }
@@ -143,7 +138,7 @@ extension CadastrarUsuarioViewController {
 extension CadastrarUsuarioViewController {
     
     func setEmailView(){
-        self.view.backgroundColor = colors.getCyan()
+        self.view.backgroundColor = self.colors.getCyan()
         txtInformativo.text = EMAIL
         txtResposta.text = ""
         txtResposta.placeholder = "saude@cuide.com"
@@ -155,18 +150,18 @@ extension CadastrarUsuarioViewController {
     
     func setSenhaView(){
         count = 0
-        self.view.backgroundColor = colors.getCyan()
+        self.view.backgroundColor = colors.getLightGreen()
         txtInformativo.text = SENHA
         txtResposta.text = ""
         txtResposta.placeholder = "senha123"
         txtResposta.isSecureTextEntry = true
         txtResposta.keyboardType = UIKeyboardType.default
         lbError.isHidden = true
-        self.usuarioDTO.senha = ""
+        self.usuario.senha = ""
     }
     
     func setConfirmaSenhaView() {
-        self.view.backgroundColor = colors.getLightGreen()
+        self.view.backgroundColor = colors.getCyan()
         txtInformativo.text = CONFIRMACAO_SENHA
         txtResposta.text = ""
         txtResposta.placeholder = "123"
@@ -176,7 +171,7 @@ extension CadastrarUsuarioViewController {
     }
     
     func setParabensView() {
-        self.view.backgroundColor = colors.getBluePrincipal()
+        self.view.backgroundColor = Colors().getBluePrincipal()
         txtInformativo.text = PARABENS
         txtResposta.isHidden = true
         lbError.isHidden = true

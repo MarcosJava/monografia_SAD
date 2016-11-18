@@ -8,6 +8,7 @@ PODS:
   - Charts (3.0.0):
     - Charts/Core (= 3.0.0)
   - Charts/Core (3.0.0)
+  - DatePickerDialog (1.1.7)
   - FacebookCore (0.2.0):
     - Bolts (~> 1.8)
     - FBSDKCoreKit (~> 4.15)
@@ -36,6 +37,7 @@ PODS:
 
 DEPENDENCIES:
   - Charts (from `https://github.com/danielgindi/Charts.git`, branch `master`)
+  - DatePickerDialog
   - FacebookCore
   - FacebookLogin
   - FacebookShare
@@ -60,6 +62,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   Charts: 3f0da988b104c8e5f069fcef55da699f597dac67
+  DatePickerDialog: bd5e7e92e4da2c6a8966b28d5f5d8f335d6c2c63
   FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
   FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
   FacebookShare: 8e9ee8ea06505e6a1d3d719b0cc63e840fb8aaeb
@@ -70,6 +73,6 @@ SPEC CHECKSUMS:
   Realm: 5f008bfe3c8c47142eddfc30b8c1584cde22db24
   RealmSwift: 5afb451f65b682242f272dbb52d5c6f6e343c980
 
-PODFILE CHECKSUM: f882ef41be194a6193c49c21b29eaccb9cef1f9c
+PODFILE CHECKSUM: 999ad8778c554dc597bbcfe6a8a0c15f25cc6710
 
 COCOAPODS: 1.1.0

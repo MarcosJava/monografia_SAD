@@ -10,52 +10,26 @@ import UIKit
 import FacebookCore
 import FacebookLogin
 import Charts
+import RealmSwift
 
-var usuarioDTO:UsuarioDTO?
+//var usuarioDTO:UsuarioDTO?
 
-class VisitorCount {
-    var date: Date = Date()
-    var count: Int = Int(0)
-}
 
 class DashboardViewController: UIViewController {
 
-    @IBOutlet weak var barView: BarChartView!
-    @IBOutlet weak var inputDados: UITextField!
-    
-    
-    var valores = Array<VisitorCount>()
-    var months: [String]!
-    
-    
-    @IBAction func btnAdd(_ sender: Any) {
-        
-        if let value = inputDados.text , value != "" {
-//            let visitorCount = VisitorCount()
-//            visitorCount.count = (NumberFormatter().number(from: value)?.intValue)!
-//            valores.append(visitorCount)
-//            updateChartWithData()
-//            inputDados.text = ""
-            months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-            let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0, 4.0, 18.0, 2.0, 4.0, 5.0, 4.0]
-            
-            setChart(dataPoints: months, values: unitsSold)
-        }
-        
-    }
+
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         super.hideKeyboardWhenTappedAround()
         
-        //self.barView.noDataText = "Nao contem dados para o relatorio"
         addNavigatiorButton()
     }
     
     func addNavigatiorButton() -> Void {
         
-        let buttonRight = UIBarButtonItem(title: "Sair", style: .done, target: self, action: Selector(("logout")))
+        let buttonRight = UIBarButtonItem(title: "Sair", style: .done, target: self, action: #selector(DashboardViewController.logout))
         self.navigationItem.rightBarButtonItem = buttonRight;
         self.navigationItem.rightBarButtonItem?.title = "Logout"
         
@@ -64,48 +38,22 @@ class DashboardViewController: UIViewController {
     func logout() {
         
         
+        let realm = try! Realm()
+
+        let usuario = Usuario()
+        _ = usuario.hasUsuarioLogado(realm: realm)
+        usuario.logado = false;
+        usuario.update(realm: realm)
         
-        if let usuario = usuarioDTO?.parserToEntity(){
-            usuario.id = (usuarioDTO?.id)!
-            usuario.logado = false;
-            usuario.update()
-        }
-        
-        
+    
         goInicial()
     }
     
-    func setChart(dataPoints: [String], values: [Double]) {
-        
-        var dataEntries: [BarChartDataEntry] = []
-        
-        for i in 0..<dataPoints.count {
-            let dataEntry = BarChartDataEntry(x: values[i], y: Double(i))
-            dataEntries.append(dataEntry)
-        }
-        
-        let chartDataSet = BarChartDataSet(values: dataEntries, label: "Units Sold")
-        let chartData = BarChartData(dataSet: chartDataSet)
-        barView.data = chartData
-        
-    }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-    func updateChartWithData() {
-        var dataEntries: [BarChartDataEntry] = []
-        
-        for i in 0..<valores.count {
-            let dataEntry = BarChartDataEntry(x: Double(i), y: Double(valores[i].count))
-            dataEntries.append(dataEntry)
-        }
-        let chartDataSet = BarChartDataSet(values: dataEntries, label: "Visitor count")
-        let chartData = BarChartData(dataSet: chartDataSet)
-        barView.data = chartData
-    }
     
     /*
     // MARK: - Navigation

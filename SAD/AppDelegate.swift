@@ -17,18 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     lazy var coreDataStack = DAO()
 
 
+    // ACABOU DE ABRIR O APP
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        
         return true
-        //return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
     
     
     
-    
+    //SAI DA APLICACAO, COLOCANDO EM BACKGROUND .. momento em que da um tap no home
     func applicationWillResignActive(_ application: UIApplication) {
-        //FBSDKAppEvents.activateApp()
+        
     }
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
@@ -38,18 +37,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    
+    //APP ENTRA EM BACKGROUND, APENAS NA MEMORIA
     func applicationDidEnterBackground(_ application: UIApplication) {
        
     }
 
+    //APP APARECE QNDO JA ESTAVA NA MEMORIA
     func applicationWillEnterForeground(_ application: UIApplication) {
         
     }
 
+    //APP ATIVO PARA O USUARIO
     func applicationDidBecomeActive(_ application: UIApplication) {
 
     }
 
+    
+    //APP FINALIZA A APP
     func applicationWillTerminate(_ application: UIApplication) {
         
         saveContext()
