@@ -9,13 +9,14 @@
 /* Begin PBXBuildFile section */
 		1806C8CF1DD569400097A198 /* UIViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1806C8CE1DD569400097A198 /* UIViewController+Keyboard.swift */; };
 		1806C8D11DD569720097A198 /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1806C8D01DD569720097A198 /* UIView+Animation.swift */; };
-		18080BA31DB838340040EF40 /* FacebookCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18080BA11DB838340040EF40 /* FacebookCore.framework */; };
-		18080BA41DB838340040EF40 /* FacebookLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18080BA21DB838340040EF40 /* FacebookLogin.framework */; };
 		18080BB71DB9A1A40040EF40 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18080BB61DB9A1A40040EF40 /* ViewController.swift */; };
 		18080BBF1DB9AF3C0040EF40 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18080BBE1DB9AF3C0040EF40 /* MenuViewController.swift */; };
 		18080BC11DB9AFCB0040EF40 /* ConsultarDadosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18080BC01DB9AFCB0040EF40 /* ConsultarDadosViewController.swift */; };
 		18080BC31DB9B3CE0040EF40 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18080BC21DB9B3CE0040EF40 /* DashboardViewController.swift */; };
 		180DA6E11DD6A1C10080FB47 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 180DA6E01DD6A1C10080FB47 /* Images.xcassets */; };
+		1848E9861DE1469D00C5BC91 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1848E9851DE1469D00C5BC91 /* GoogleService-Info.plist */; };
+		1848E98A1DE1503800C5BC91 /* DadosFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848E9891DE1503800C5BC91 /* DadosFirebase.swift */; };
+		1848E98C1DE1504F00C5BC91 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848E98B1DE1504F00C5BC91 /* Firebase.swift */; };
 		184F33A21DDD4F6600867076 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 184F33A11DDD4F6600867076 /* LaunchScreen.storyboard */; };
 		1865648E1DC97D090075FAAA /* CadastrarUsuarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865648D1DC97D090075FAAA /* CadastrarUsuarioViewController.swift */; };
 		186564901DC97E7F0075FAAA /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865648F1DC97E7F0075FAAA /* Colors.swift */; };
@@ -31,7 +32,6 @@
 		18B1FD431DD724A700E04F37 /* ConfiguracoesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B1FD421DD724A700E04F37 /* ConfiguracoesViewController.swift */; };
 		18B1FD451DD7507B00E04F37 /* UITextView+Designer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B1FD441DD7507B00E04F37 /* UITextView+Designer.swift */; };
 		18B1FD471DD754BC00E04F37 /* user.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 18B1FD461DD754BC00E04F37 /* user.jpeg */; };
-		18C378461DCA4C7200098937 /* DAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C378451DCA4C7200098937 /* DAO.swift */; };
 		18D393291DDE6E0A0037FA33 /* LaunchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D393251DDE6E0A0037FA33 /* LaunchScreen.png */; };
 		18D3932E1DDE70910037FA33 /* iconSAD120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D3932C1DDE70910037FA33 /* iconSAD120x120.png */; };
 		18D3932F1DDE70910037FA33 /* iconSAD180x180.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D3932D1DDE70910037FA33 /* iconSAD180x180.png */; };
@@ -77,6 +77,9 @@
 		18080BC01DB9AFCB0040EF40 /* ConsultarDadosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConsultarDadosViewController.swift; path = SAD/ConsultarDadosViewController.swift; sourceTree = SOURCE_ROOT; };
 		18080BC21DB9B3CE0040EF40 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DashboardViewController.swift; path = SAD/DashboardViewController.swift; sourceTree = SOURCE_ROOT; };
 		180DA6E01DD6A1C10080FB47 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		1848E9851DE1469D00C5BC91 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1848E9891DE1503800C5BC91 /* DadosFirebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DadosFirebase.swift; sourceTree = "<group>"; };
+		1848E98B1DE1504F00C5BC91 /* Firebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
 		184F33A11DDD4F6600867076 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1865648D1DC97D090075FAAA /* CadastrarUsuarioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CadastrarUsuarioViewController.swift; path = SAD/CadastrarUsuarioViewController.swift; sourceTree = SOURCE_ROOT; };
 		1865648F1DC97E7F0075FAAA /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -99,7 +102,6 @@
 		18B1FD441DD7507B00E04F37 /* UITextView+Designer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+Designer.swift"; sourceTree = "<group>"; };
 		18B1FD461DD754BC00E04F37 /* user.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = user.jpeg; sourceTree = "<group>"; };
 		18BDB0361DDBA97400818DFC /* DatePickerDialog.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DatePickerDialog.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/SAD-dsfyhshgicjdoscjotbymjrxnlim/Build/Products/Debug-iphonesimulator/DatePickerDialog/DatePickerDialog.framework"; sourceTree = "<group>"; };
-		18C378451DCA4C7200098937 /* DAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DAO.swift; sourceTree = "<group>"; };
 		18D393251DDE6E0A0037FA33 /* LaunchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchScreen.png; sourceTree = "<group>"; };
 		18D3932C1DDE70910037FA33 /* iconSAD120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconSAD120x120.png; sourceTree = "<group>"; };
 		18D3932D1DDE70910037FA33 /* iconSAD180x180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconSAD180x180.png; sourceTree = "<group>"; };
@@ -123,8 +125,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				188533061DCB477100173434 /* RealmSwift.framework in Frameworks */,
-				18080BA31DB838340040EF40 /* FacebookCore.framework in Frameworks */,
-				18080BA41DB838340040EF40 /* FacebookLogin.framework in Frameworks */,
 				823BCCBC0D022B5FDB8B4F0B /* Pods_SAD.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -171,7 +171,6 @@
 			isa = PBXGroup;
 			children = (
 				18C378471DCA621200098937 /* Entity */,
-				18C378441DCA4C6200098937 /* DAO */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -189,6 +188,22 @@
 				18B1FD461DD754BC00E04F37 /* user.jpeg */,
 			);
 			name = Sources;
+			sourceTree = "<group>";
+		};
+		1848E9871DE14F2000C5BC91 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				1848E9891DE1503800C5BC91 /* DadosFirebase.swift */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		1848E9881DE14F3100C5BC91 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				1848E98B1DE1504F00C5BC91 /* Firebase.swift */,
+			);
+			name = Service;
 			sourceTree = "<group>";
 		};
 		186564911DC987BD0075FAAA /* Util */ = {
@@ -225,6 +240,8 @@
 		18A262C71DB830FA002E32A2 /* SAD */ = {
 			isa = PBXGroup;
 			children = (
+				1848E9881DE14F3100C5BC91 /* Service */,
+				1848E9871DE14F2000C5BC91 /* Networking */,
 				180DA6D31DD698400080FB47 /* Sources */,
 				186564911DC987BD0075FAAA /* Util */,
 				18080BBD1DB9A64D0040EF40 /* Model */,
@@ -233,6 +250,7 @@
 				18080BA51DB8391B0040EF40 /* SAD.entitlements */,
 				18080BB61DB9A1A40040EF40 /* ViewController.swift */,
 				18A262C81DB830FA002E32A2 /* AppDelegate.swift */,
+				1848E9851DE1469D00C5BC91 /* GoogleService-Info.plist */,
 				18A262CC1DB830FA002E32A2 /* Main.storyboard */,
 				18A262D21DB830FA002E32A2 /* Assets.xcassets */,
 				18A262D71DB830FA002E32A2 /* Info.plist */,
@@ -260,14 +278,6 @@
 				18A262ED1DB830FA002E32A2 /* Info.plist */,
 			);
 			path = SADUITests;
-			sourceTree = "<group>";
-		};
-		18C378441DCA4C6200098937 /* DAO */ = {
-			isa = PBXGroup;
-			children = (
-				18C378451DCA4C7200098937 /* DAO.swift */,
-			);
-			name = DAO;
 			sourceTree = "<group>";
 		};
 		18C378471DCA621200098937 /* Entity */ = {
@@ -449,6 +459,7 @@
 				184F33A21DDD4F6600867076 /* LaunchScreen.storyboard in Resources */,
 				18D3932E1DDE70910037FA33 /* iconSAD120x120.png in Resources */,
 				18A262CE1DB830FA002E32A2 /* Main.storyboard in Resources */,
+				1848E9861DE1469D00C5BC91 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,15 +532,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18C378461DCA4C7200098937 /* DAO.swift in Sources */,
 				18B1FD431DD724A700E04F37 /* ConfiguracoesViewController.swift in Sources */,
 				18B1FD451DD7507B00E04F37 /* UITextView+Designer.swift in Sources */,
+				1848E98A1DE1503800C5BC91 /* DadosFirebase.swift in Sources */,
 				188533041DCB453300173434 /* Usuario.swift in Sources */,
 				18080BB71DB9A1A40040EF40 /* ViewController.swift in Sources */,
 				18E93FBA1DD2BB22001A7D5F /* Glicemia.swift in Sources */,
 				186564901DC97E7F0075FAAA /* Colors.swift in Sources */,
 				18080BC11DB9AFCB0040EF40 /* ConsultarDadosViewController.swift in Sources */,
 				18080BBF1DB9AF3C0040EF40 /* MenuViewController.swift in Sources */,
+				1848E98C1DE1504F00C5BC91 /* Firebase.swift in Sources */,
 				18A262D11DB830FA002E32A2 /* SAD.xcdatamodeld in Sources */,
 				18A262C91DB830FA002E32A2 /* AppDelegate.swift in Sources */,
 				1806C8D11DD569720097A198 /* UIView+Animation.swift in Sources */,

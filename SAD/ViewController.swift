@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import FacebookCore
-import FacebookLogin
 import RealmSwift
 
 class ViewController: UIViewController{

@@ -8,18 +8,17 @@
 
 import UIKit
 import CoreData
-import FBSDKLoginKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    lazy var coreDataStack = DAO()
 
 
     // ACABOU DE ABRIR O APP
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
+        FIRApp.configure()
         return true
     }
     
@@ -31,9 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        _ = FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
         
-        //return fb
         return true
     }
     

@@ -9,13 +9,10 @@ platform :ios, '9.0'
 target 'SAD' do
     use_frameworks!
 
-    pod 'FacebookCore'
-    pod 'FacebookLogin'
-    pod 'FacebookShare'
     pod 'Marshal', :git => 'https://github.com/utahiosmac/Marshal.git'
-#    pod 'RealmSwift', :git => 'https://github.com/realm/realm-cocoa.git', :branch => 'master', :submodules => true
     pod 'RealmSwift'
     pod 'Charts', :git => 'https://github.com/danielgindi/Charts.git', :branch => 'master'
+    pod 'Firebase/Core'
     pod 'DatePickerDialog'
 end
 
