@@ -18,6 +18,9 @@
 		1848E98A1DE1503800C5BC91 /* DadosFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848E9891DE1503800C5BC91 /* DadosFirebase.swift */; };
 		1848E98C1DE1504F00C5BC91 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848E98B1DE1504F00C5BC91 /* Firebase.swift */; };
 		184F33A21DDD4F6600867076 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 184F33A11DDD4F6600867076 /* LaunchScreen.storyboard */; };
+		185A57061DE3D32300B8FE79 /* ConfiguracaoFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185A57051DE3D32300B8FE79 /* ConfiguracaoFirebase.swift */; };
+		185A57081DE3D33100B8FE79 /* UsuarioFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185A57071DE3D33100B8FE79 /* UsuarioFirebase.swift */; };
+		185A570A1DE3D35200B8FE79 /* GlicemiaFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185A57091DE3D35200B8FE79 /* GlicemiaFirebase.swift */; };
 		1865648E1DC97D090075FAAA /* CadastrarUsuarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865648D1DC97D090075FAAA /* CadastrarUsuarioViewController.swift */; };
 		186564901DC97E7F0075FAAA /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865648F1DC97E7F0075FAAA /* Colors.swift */; };
 		186564931DC987C60075FAAA /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186564921DC987C60075FAAA /* Regex.swift */; };
@@ -32,6 +35,10 @@
 		18B1FD431DD724A700E04F37 /* ConfiguracoesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B1FD421DD724A700E04F37 /* ConfiguracoesViewController.swift */; };
 		18B1FD451DD7507B00E04F37 /* UITextView+Designer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B1FD441DD7507B00E04F37 /* UITextView+Designer.swift */; };
 		18B1FD471DD754BC00E04F37 /* user.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 18B1FD461DD754BC00E04F37 /* user.jpeg */; };
+		18C955031DE27E9D0041B44F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C955021DE27E9D0041B44F /* Constants.swift */; };
+		18CA7F6A1DE5870A00B34821 /* Mensagens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CA7F691DE5870A00B34821 /* Mensagens.swift */; };
+		18CA7F6E1DE5893D00B34821 /* down_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 18CA7F6C1DE5893D00B34821 /* down_red.png */; };
+		18CA7F6F1DE5893D00B34821 /* up_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 18CA7F6D1DE5893D00B34821 /* up_red.png */; };
 		18D393291DDE6E0A0037FA33 /* LaunchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D393251DDE6E0A0037FA33 /* LaunchScreen.png */; };
 		18D3932E1DDE70910037FA33 /* iconSAD120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D3932C1DDE70910037FA33 /* iconSAD120x120.png */; };
 		18D3932F1DDE70910037FA33 /* iconSAD180x180.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D3932D1DDE70910037FA33 /* iconSAD180x180.png */; };
@@ -81,6 +88,9 @@
 		1848E9891DE1503800C5BC91 /* DadosFirebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DadosFirebase.swift; sourceTree = "<group>"; };
 		1848E98B1DE1504F00C5BC91 /* Firebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
 		184F33A11DDD4F6600867076 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		185A57051DE3D32300B8FE79 /* ConfiguracaoFirebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfiguracaoFirebase.swift; sourceTree = "<group>"; };
+		185A57071DE3D33100B8FE79 /* UsuarioFirebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsuarioFirebase.swift; sourceTree = "<group>"; };
+		185A57091DE3D35200B8FE79 /* GlicemiaFirebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlicemiaFirebase.swift; sourceTree = "<group>"; };
 		1865648D1DC97D090075FAAA /* CadastrarUsuarioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CadastrarUsuarioViewController.swift; path = SAD/CadastrarUsuarioViewController.swift; sourceTree = SOURCE_ROOT; };
 		1865648F1DC97E7F0075FAAA /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		186564921DC987C60075FAAA /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
@@ -102,6 +112,10 @@
 		18B1FD441DD7507B00E04F37 /* UITextView+Designer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+Designer.swift"; sourceTree = "<group>"; };
 		18B1FD461DD754BC00E04F37 /* user.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = user.jpeg; sourceTree = "<group>"; };
 		18BDB0361DDBA97400818DFC /* DatePickerDialog.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DatePickerDialog.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/SAD-dsfyhshgicjdoscjotbymjrxnlim/Build/Products/Debug-iphonesimulator/DatePickerDialog/DatePickerDialog.framework"; sourceTree = "<group>"; };
+		18C955021DE27E9D0041B44F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		18CA7F691DE5870A00B34821 /* Mensagens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mensagens.swift; sourceTree = "<group>"; };
+		18CA7F6C1DE5893D00B34821 /* down_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = down_red.png; sourceTree = "<group>"; };
+		18CA7F6D1DE5893D00B34821 /* up_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = up_red.png; sourceTree = "<group>"; };
 		18D393251DDE6E0A0037FA33 /* LaunchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchScreen.png; sourceTree = "<group>"; };
 		18D3932C1DDE70910037FA33 /* iconSAD120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconSAD120x120.png; sourceTree = "<group>"; };
 		18D3932D1DDE70910037FA33 /* iconSAD180x180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconSAD180x180.png; sourceTree = "<group>"; };
@@ -170,6 +184,7 @@
 		18080BBD1DB9A64D0040EF40 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				185A57021DE3D2F200B8FE79 /* DTOService */,
 				18C378471DCA621200098937 /* Entity */,
 			);
 			name = Model;
@@ -178,6 +193,7 @@
 		180DA6D31DD698400080FB47 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				18CA7F6B1DE5893D00B34821 /* arrows */,
 				18D393301DDE7ADE0037FA33 /* Icon-App-60x60@2x.png */,
 				18D393361DDE7C3B0037FA33 /* Icon-App-29x29@3x.png */,
 				18D393311DDE7ADE0037FA33 /* Icon-App-60x60@3x.png */,
@@ -206,11 +222,22 @@
 			name = Service;
 			sourceTree = "<group>";
 		};
+		185A57021DE3D2F200B8FE79 /* DTOService */ = {
+			isa = PBXGroup;
+			children = (
+				185A57051DE3D32300B8FE79 /* ConfiguracaoFirebase.swift */,
+				185A57071DE3D33100B8FE79 /* UsuarioFirebase.swift */,
+				185A57091DE3D35200B8FE79 /* GlicemiaFirebase.swift */,
+			);
+			name = DTOService;
+			sourceTree = "<group>";
+		};
 		186564911DC987BD0075FAAA /* Util */ = {
 			isa = PBXGroup;
 			children = (
 				18C3784C1DCACC5900098937 /* Extension */,
 				186564921DC987C60075FAAA /* Regex.swift */,
+				18C955021DE27E9D0041B44F /* Constants.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -296,8 +323,18 @@
 				1806C8CE1DD569400097A198 /* UIViewController+Keyboard.swift */,
 				1806C8D01DD569720097A198 /* UIView+Animation.swift */,
 				18B1FD441DD7507B00E04F37 /* UITextView+Designer.swift */,
+				18CA7F691DE5870A00B34821 /* Mensagens.swift */,
 			);
 			name = Extension;
+			sourceTree = "<group>";
+		};
+		18CA7F6B1DE5893D00B34821 /* arrows */ = {
+			isa = PBXGroup;
+			children = (
+				18CA7F6C1DE5893D00B34821 /* down_red.png */,
+				18CA7F6D1DE5893D00B34821 /* up_red.png */,
+			);
+			path = arrows;
 			sourceTree = "<group>";
 		};
 		FAF0AECA8F9D9DADA87A16EB /* Pods */ = {
@@ -458,8 +495,10 @@
 				18A262D31DB830FA002E32A2 /* Assets.xcassets in Resources */,
 				184F33A21DDD4F6600867076 /* LaunchScreen.storyboard in Resources */,
 				18D3932E1DDE70910037FA33 /* iconSAD120x120.png in Resources */,
+				18CA7F6F1DE5893D00B34821 /* up_red.png in Resources */,
 				18A262CE1DB830FA002E32A2 /* Main.storyboard in Resources */,
 				1848E9861DE1469D00C5BC91 /* GoogleService-Info.plist in Resources */,
+				18CA7F6E1DE5893D00B34821 /* down_red.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,6 +574,7 @@
 				18B1FD431DD724A700E04F37 /* ConfiguracoesViewController.swift in Sources */,
 				18B1FD451DD7507B00E04F37 /* UITextView+Designer.swift in Sources */,
 				1848E98A1DE1503800C5BC91 /* DadosFirebase.swift in Sources */,
+				18CA7F6A1DE5870A00B34821 /* Mensagens.swift in Sources */,
 				188533041DCB453300173434 /* Usuario.swift in Sources */,
 				18080BB71DB9A1A40040EF40 /* ViewController.swift in Sources */,
 				18E93FBA1DD2BB22001A7D5F /* Glicemia.swift in Sources */,
@@ -543,10 +583,14 @@
 				18080BBF1DB9AF3C0040EF40 /* MenuViewController.swift in Sources */,
 				1848E98C1DE1504F00C5BC91 /* Firebase.swift in Sources */,
 				18A262D11DB830FA002E32A2 /* SAD.xcdatamodeld in Sources */,
+				185A57081DE3D33100B8FE79 /* UsuarioFirebase.swift in Sources */,
 				18A262C91DB830FA002E32A2 /* AppDelegate.swift in Sources */,
 				1806C8D11DD569720097A198 /* UIView+Animation.swift in Sources */,
 				18080BC31DB9B3CE0040EF40 /* DashboardViewController.swift in Sources */,
+				185A57061DE3D32300B8FE79 /* ConfiguracaoFirebase.swift in Sources */,
+				185A570A1DE3D35200B8FE79 /* GlicemiaFirebase.swift in Sources */,
 				1806C8CF1DD569400097A198 /* UIViewController+Keyboard.swift in Sources */,
+				18C955031DE27E9D0041B44F /* Constants.swift in Sources */,
 				1865648E1DC97D090075FAAA /* CadastrarUsuarioViewController.swift in Sources */,
 				186564931DC987C60075FAAA /* Regex.swift in Sources */,
 				18E93FAF1DD2816B001A7D5F /* RealizarExameViewController.swift in Sources */,

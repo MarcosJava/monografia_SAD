@@ -17,6 +17,8 @@ class ViewController: UIViewController{
     @IBOutlet weak var btnEntrar: UIButton!
     
     override func viewDidLoad() {
+        //_ = FirebaseConfig()
+        
         hideKeyboardWhenTappedAround()
         self.btnEntrar.arredondar()
         self.btnEntrar.enfeitaView()

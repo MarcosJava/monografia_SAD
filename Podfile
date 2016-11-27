@@ -13,6 +13,7 @@ target 'SAD' do
     pod 'RealmSwift'
     pod 'Charts', :git => 'https://github.com/danielgindi/Charts.git', :branch => 'master'
     pod 'Firebase/Core'
+    pod 'Firebase/Database'
     pod 'DatePickerDialog'
 end
 

@@ -28,48 +28,39 @@ class RealizarExameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         super.hideKeyboardWhenTappedAround()
-        
-        
         carregaDados()
-        adicionarBtnDesativado()
-        
-        print(self.usuario)
-        print(self.configuracao)
-        
+        adicionarBtnAtivado(false)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    
-    private func adicionarBtnDesativado(){
-        self.adicionarBtn.isEnabled = false
-        self.adicionarBtn.layer.opacity = 0.5
-    }
-    
-    private func adicionarBtnAtivado(){
-        self.adicionarBtn.isEnabled = true
-        self.adicionarBtn.layer.opacity = 1
+    private func adicionarBtnAtivado(_ resultado: Bool){
+        
+        self.adicionarBtn.isEnabled = resultado
+        if resultado {
+            self.adicionarBtn.layer.opacity = 1
+        } else {
+            self.adicionarBtn.layer.opacity = 0.5
+        }
     }
     
     private func carregaDados() {
         let realm = try! Realm()
+        realm.beginWrite()
         _ = usuario.hasUsuarioLogado(realm: realm)
         self.configuracao.id = usuario.configuracao
         self.configuracao.configuracaoComId(realm: realm)
+        try! realm.commitWrite()
         
-        
+        print(self.usuario)
+        print(self.configuracao)
     }
     
-    private func showObservacoes(){
-        self.observacaoField.isHidden = false
-        self.observacaoLabel.isHidden = false
-    }
-    
-    private func hideObservacoes(){
-        self.observacaoField.isHidden = true
-        self.observacaoLabel.isHidden = true
+    private func observacoesShow(_ resultado: Bool){
+        self.observacaoField.isHidden = !resultado
+        self.observacaoLabel.isHidden = !resultado
     }
 
     
@@ -77,23 +68,15 @@ class RealizarExameViewController: UIViewController {
         
         guard let glicemia = Double(self.glicemiaField.text!) else {return}
         
-        print("A maior Glicemia : \(configuracao.maiorGlicemia)")
-        print("A menor Glicemia : \(configuracao.menorGlicemia)")
-        print("A Glicemia digitada : \(glicemia)")
-        
         if configuracao.maiorGlicemia > glicemia || glicemia > configuracao.menorGlicemia {
-            hideObservacoes()
-            
+            observacoesShow(false)
         } else {
-            showObservacoes()
-            
+            observacoesShow(true)
         }
         
         if glicemia > 1 {
-            adicionarBtnAtivado()
+            adicionarBtnAtivado(true)
         }
-        
-        
     }
     
     
@@ -107,22 +90,33 @@ class RealizarExameViewController: UIViewController {
         let txHormonal = Double(taxaHormonalField.text!) ?? 0.0
         let pressaoMin = Double(pressaoMinimaField.text!) ?? 0.0
         let pressaoMax = Double(pressaoMaximaField.text!) ?? 0.0
-
         
-        _ = self.glicemia.pegaUltimoId()
         self.glicemia.configuracao = self.configuracao.id
         self.glicemia.taxaHormonal = txHormonal
         self.glicemia.valorGlicemico = glicemia
         self.glicemia.pressaoMaior = pressaoMax
         self.glicemia.pressaoMenor = pressaoMin
         self.glicemia.observacao = observacao
-        self.glicemia.save()
         
-        self.usuario.glicemias.append(self.glicemia)
+        self.glicemia.save(usuario: self.usuario)
         
-        let realm = try! Realm()
-        self.usuario.update(realm: realm)
+        let mensagem = MensagensUtil()
+        mensagem.alertaSucesso(titulo: "SALVO", mensagem: "Exame salvo com sucesso", view: self)
         
+        resetFormularios()
+        
+    }
+    
+    func resetFormularios(){
+        self.glicemiaField.text = ""
+        self.pressaoMinimaField.text = ""
+        self.pressaoMaximaField.text = ""
+        self.taxaHormonalField.text = ""
+        self.observacaoField.text = ""
+        self.glicemia = Glicemia()
+        
+        observacoesShow(false)
+        adicionarBtnAtivado(false)
     }
 
     /*

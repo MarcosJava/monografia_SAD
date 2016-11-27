@@ -112,14 +112,15 @@ extension Usuario {
             
             let usuarios = realm.objects(Usuario.self).filter("email = '\(email)' AND senha='\(senha)'")
             
-            if usuarios.count > 0 {
-                self.id = (usuarios.first?.id)!
-                self.email = (usuarios.first?.email)!
-                self.senha = (usuarios.first?.senha)!
-                return true
-            } else {
-                return false
-            }
+            guard let usuario = usuarios.first  else { return false}
+            
+            self.id = usuario.id
+            self.email = usuario.email
+            self.senha = usuario.senha
+            self.glicemias  = usuario.glicemias
+            self.configuracao = usuario.configuracao
+            return true
+            
             
         } catch let error as NSError {
             print(error)

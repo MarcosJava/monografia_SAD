@@ -191,6 +191,16 @@
                     <view key="view" contentMode="scaleToFill" id="WDx-8y-41p">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="down_red.png" translatesAutoresizingMaskIntoConstraints="NO" id="fab-kK-2o7">
+                                <rect key="frame" x="16" y="63" width="92" height="81"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="up_red.png" translatesAutoresizingMaskIntoConstraints="NO" id="pfd-QD-xql">
+                                <rect key="frame" x="116" y="63" width="68" height="81"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="0.13333333333333333" green="0.59215686274509804" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
@@ -598,4 +608,8 @@
             <point key="canvasLocation" x="1775.2" y="93.103448275862078"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="down_red.png" width="180" height="300"/>
+        <image name="up_red.png" width="180" height="300"/>
+    </resources>
 </document>

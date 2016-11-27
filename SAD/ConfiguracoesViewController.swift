@@ -14,7 +14,9 @@ class ConfiguracoesViewController: UIViewController {
     @IBOutlet weak var dataNascimentoField: UITextField!
     @IBOutlet weak var qtdMaximaField: UITextField!
     @IBOutlet weak var qtdMinimaField: UITextField!
+    
     var usuario:Usuario!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,10 +24,12 @@ class ConfiguracoesViewController: UIViewController {
         self.hideKeyboardWhenTappedAround()
         populaCampo()
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Salvar", style: .done, target: self, action: #selector(ConfiguracoesViewController.salvar))
+        
         
     }
-    
+    func adicionaButtonNoNavegador(_ titulo: String){
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: titulo, style: .done, target: self, action: #selector(ConfiguracoesViewController.salvar))
+    }
     func populaCampo() {
         
         let idConfiguracao = verificaUsuarioTemConfiguracao()
@@ -43,9 +47,11 @@ class ConfiguracoesViewController: UIViewController {
             self.dataNascimentoField.text = dateFormat.string(from: configuracao.dtNascimento!)
             self.qtdMaximaField.text = String.init(format: "%f", configuracao.maiorGlicemia)
             self.qtdMinimaField.text  = String(configuracao.menorGlicemia)
-            
+            adicionaButtonNoNavegador("Alterar")
             print(configuracao)
             
+        } else {
+            adicionaButtonNoNavegador("Salvar")
         }
     }
     

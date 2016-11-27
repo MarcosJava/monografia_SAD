@@ -17,6 +17,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     var arrayMenu:Array = ["Realizar Exame", "Consultar", "Grafico", "Maior Glicemia", "Menor Glicemia", "Configuração"]
     var usuario:Usuario! = nil
     
+    let mensagem = MensagensUtil()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,6 +71,8 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
                 if self.usuario.configuracao != 0 {
                     self.goRealizarExames()
                 } else {
+                    
+                    mensagem.alertaSucesso(titulo: "Configuração", mensagem: "Para realizar o exame e necessario preencher configuracao", view: self)
                     self.tableView.deselectRow(at: indexPath, animated: true)
                 }
                 
