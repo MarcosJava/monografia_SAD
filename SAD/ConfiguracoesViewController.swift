@@ -117,5 +117,20 @@ class ConfiguracoesViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    @IBAction func dtNascimentoFieldBeginEdit(_ sender: Any) {
+        
+        let datePicker = UIDatePicker()
+        datePicker.datePickerMode = .date
+        self.dataNascimentoField.inputView = datePicker
+        datePicker.addTarget(self, action: #selector(ConfiguracoesViewController.dtNascimentoValueChange), for: .valueChanged)
+        
+    }
+    
+    func dtNascimentoValueChange(sender: UIDatePicker){
+        let dateFormat = DateFormatter()
+        dateFormat.dateFormat = "dd/MM/yyyy"
+        dataNascimentoField.text = dateFormat.string(from: sender.date)
+        
+    }
+    
 }

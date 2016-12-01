@@ -257,6 +257,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="dtNascimentoFieldBeginEdit:" destination="rus-Vj-lAR" eventType="editingDidBegin" id="mCC-R6-k06"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.13333333333333333" green="0.59215686274509804" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
