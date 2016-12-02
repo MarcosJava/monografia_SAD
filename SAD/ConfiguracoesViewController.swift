@@ -14,7 +14,7 @@ class ConfiguracoesViewController: UIViewController {
     @IBOutlet weak var dataNascimentoField: UITextField!
     @IBOutlet weak var qtdMaximaField: UITextField!
     @IBOutlet weak var qtdMinimaField: UITextField!
-    
+    var idConfiguracao:Int = 0
     var usuario:Usuario!
 
     
@@ -32,9 +32,9 @@ class ConfiguracoesViewController: UIViewController {
     }
     func populaCampo() {
         
-        let idConfiguracao = verificaUsuarioTemConfiguracao()
+        idConfiguracao = verificaUsuarioTemConfiguracao()
         
-        if( idConfiguracao != 0 ){
+        if(idConfiguracao != 0 ){
             
             let realm = try! Realm()
             let configuracao = Configuracao()
@@ -94,6 +94,13 @@ class ConfiguracoesViewController: UIViewController {
                     usuario.configuracao = configuracao.id
                     usuario.update(realm: realm)
                     
+                    
+                    let alert = MensagensUtil()
+                    let titulo = idConfiguracao == 0 ? "SALVO" : "ALTERADO"
+                    let mensagem = idConfiguracao == 0 ? "Configuração salva com sucesso" : "Configuração alterada com sucesso"
+                    alert.alertaSucesso(titulo: titulo, mensagem: mensagem, view: self)
+
+                    
                 } catch _ as NSError {
                     print("DEU ERRO")
                 }
@@ -118,14 +125,14 @@ class ConfiguracoesViewController: UIViewController {
     }
     */
     @IBAction func dtNascimentoFieldBeginEdit(_ sender: Any) {
-        
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .date
         self.dataNascimentoField.inputView = datePicker
         datePicker.addTarget(self, action: #selector(ConfiguracoesViewController.dtNascimentoValueChange), for: .valueChanged)
         
     }
-    
+
+
     func dtNascimentoValueChange(sender: UIDatePicker){
         let dateFormat = DateFormatter()
         dateFormat.dateFormat = "dd/MM/yyyy"

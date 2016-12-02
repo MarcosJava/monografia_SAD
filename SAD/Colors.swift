@@ -23,6 +23,11 @@ class Colors {
     func getBluePrincipal() -> UIColor {
         return UIColor(netHex: 0x2196F3)
     }
+    
+    func getBluePrincipalClear() -> UIColor {
+        return UIColor(netHex: 0xBBE7F8)
+    }
+    
 }
 
 

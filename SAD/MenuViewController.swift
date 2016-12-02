@@ -18,6 +18,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     var usuario:Usuario! = nil
     
     let mensagem = MensagensUtil()
+    let colors:Colors = Colors()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +30,12 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         _ = usuario.hasUsuarioLogado(realm: realm)
         print(usuario)
         
+        
+        
+
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView.backgroundColor = colors.getBluePrincipal()
      
     }
     
@@ -53,6 +58,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         cell.textLabel?.text = arrayMenu[indexPath.row]
         cell.textLabel?.font = UIFont(name: "Avenir Next", size:15)
+        cell.backgroundColor = colors.getBluePrincipalClear()
         return cell
     }
     

@@ -176,4 +176,19 @@ extension Usuario {
         
     }
     
+    
+    func todasDatasEntre(primeiraDt: NSDate, segundaDt: NSDate){
+        
+        do{
+            
+           let realm = try Realm()
+           realm.objects(Usuario.self).filter("configuracao.dt")
+            
+        } catch let error as NSError {
+            print(error)
+        }
+        
+        
+    }
+    
 }
