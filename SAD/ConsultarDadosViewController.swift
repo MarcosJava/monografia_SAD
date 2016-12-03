@@ -18,6 +18,28 @@ class ConsultarDadosViewController: UIViewController{
     
     var glicemias = [Glicemia]()
     
+    let mensagemUtil = MensagensUtil()
+    
+    let dateFormatter: DateFormatter = {
+        let dtFormatter = DateFormatter()
+        dtFormatter.dateFormat = "dd/MM/yyyy"
+        return dtFormatter
+    }()
+    
+    
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Atualizando")
+        refreshControl.addTarget(self, action: #selector(ConsultarDadosViewController.handleRefresh), for: UIControlEvents.valueChanged)
+        
+        return refreshControl
+    }()
+    
+    var textoFormato: () -> (UIFont) = {
+        UIFont(name: "Avenir Next", size:15)!
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
@@ -25,10 +47,9 @@ class ConsultarDadosViewController: UIViewController{
         dtSegundaField.isEnabled = false
         
         hideKeyboardWhenTappedAround()
-        
+        configurarPushRefresh()
         configurarDados()
     }
-    
     
     
     
@@ -38,33 +59,24 @@ class ConsultarDadosViewController: UIViewController{
         _ = usuario.hasUsuarioLogado(realm: realm!)
         glicemias = Array(usuario.glicemias)
         glicemias.sort(by: { $0.dtCadastro.compare($1.dtCadastro as Date) == .orderedDescending })
-        
+
     }
     
     @IBAction func buscarEntreDatas(_ sender: Any) {
         
         guard let dtPrimeira = dtPrimeiraField.text, let dtSegunda = dtSegundaField.text else {
-            
-            //TODO: Alert view pra selecionar as duas datas.
+            mensagemUtil.alertaSucesso(titulo: "Erro :/", mensagem: "Selecionar as datas", view: self)
             return;
         }
         
         if dtPrimeira != "" && dtSegunda != "" {
-            
-            let dateFormatt = DateFormatter()
-            dateFormatt.dateFormat = "dd/MM/yyyy"
-            
-            let dtOne = dateFormatt.date(from: dtPrimeira)!
-            let dtTwo = dateFormatt.date(from: dtSegunda)!
+            let dtOne = dateFormatter.date(from: dtPrimeira)!
+            let dtTwo = dateFormatter.date(from: dtSegunda)!
             
             glicemias = glicemias.filter({
                 ($0.dtCadastro.compare(dtOne) == .orderedDescending) && ($0.dtCadastro.compare(dtTwo) == .orderedAscending)
-                
             })
-            
-            print(glicemias)
             tableView.reloadData()
-            
         }
     }
     
@@ -76,11 +88,8 @@ class ConsultarDadosViewController: UIViewController{
     }
     
     func dtPrimeiraValueChange(sender: UIDatePicker){
-        let dateFormat = DateFormatter()
-        dateFormat.dateFormat = "dd/MM/yyyy"
-        dtPrimeiraField.text = dateFormat.string(from: sender.date)
+        dtPrimeiraField.text = dateFormatter.string(from: sender.date)
         dtSegundaField.isEnabled = true
-        
     }
     
     
@@ -92,24 +101,20 @@ class ConsultarDadosViewController: UIViewController{
     }
     
     func dtSegundaValueChange(sender: UIDatePicker){
-        let dateFormat = DateFormatter()
-        dateFormat.dateFormat = "dd/MM/yyyy"
         
-        let datePrimeira = dateFormat.date(from: dtPrimeiraField.text!)
+        let datePrimeira = dateFormatter.date(from: dtPrimeiraField.text!)
         
         if datePrimeira?.compare(sender.date) == .orderedAscending {
-            dtSegundaField.text = dateFormat.string(from: sender.date)
+            dtSegundaField.text = dateFormatter.string(from: sender.date)
         
         } else {
-            dtSegundaField.text = dateFormat.string(from: sender.date)
-            dtPrimeiraField.text = dateFormat.string(from: sender.date)
+            dtSegundaField.text = dateFormatter.string(from: sender.date)
+            dtPrimeiraField.text = dateFormatter.string(from: sender.date)
         }
         
     }
     
-    var textoFormato: () -> (UIFont) = {
-         UIFont(name: "Avenir Next", size:15)!
-    }
+    
 
     /*
     // MARK: - Navigation
@@ -126,7 +131,6 @@ class ConsultarDadosViewController: UIViewController{
 
 extension ConsultarDadosViewController: UITableViewDelegate, UITableViewDataSource {
     
-    
     override func viewDidAppear(_ animated: Bool) {
         if glicemias.count > 1 {
             let index = IndexPath(row: 1, section: 0)
@@ -138,33 +142,67 @@ extension ConsultarDadosViewController: UITableViewDelegate, UITableViewDataSour
         return glicemias.count
     }
     
-    
-    
-    
-    
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func numberOfSections(in tableView: UITableView) -> Int {
         
-        
-        let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "Cell")
-        
-        let dateFormatt = DateFormatter()
-        dateFormatt.dateFormat = "dd/MM/yyyy"
-        
-        if let glicemia:Glicemia = glicemias[indexPath.row] {
-            cell.textLabel?.text = "Dados glicemicos: \(glicemia.valorGlicemico)"
-            cell.detailTextLabel?.text = "data: \(dateFormatt.string(from: glicemia.dtCadastro as Date))"
+        if (glicemias.count > 0) {
+            self.tableView.separatorStyle = .singleLine
+            return 1;
             
+        } else {
             
-            cell.textLabel?.font = textoFormato()
+            let frame = CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.height)
+            let messageLabel = UILabel(frame: frame)
+            
+            messageLabel.text = "Não tem dados. Push down para reload.";
+            messageLabel.textColor = UIColor.black
+            messageLabel.numberOfLines = 0;
+            messageLabel.textAlignment = .center;
+            messageLabel.font = textoFormato()
+            messageLabel.sizeToFit()
+            
+            self.tableView.backgroundView = messageLabel;
+            self.tableView.separatorStyle = .none;
             
         }
-        return cell
         
+        return 0;
     }
     
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "Cell")
+        
+        let glicemia:Glicemia = glicemias[indexPath.row]
+        
+        cell.textLabel?.text = "Dados glicemicos: \(glicemia.valorGlicemico)"
+        cell.detailTextLabel?.text = "data: \(dateFormatter.string(from: glicemia.dtCadastro as Date))"
+        cell.textLabel?.font = textoFormato()
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            glicemias.remove(at: indexPath.row)
+            tableView.reloadData()
+        }
+        
+    }
+    
 }
 
+
+//Animation with view
+extension ConsultarDadosViewController {
+    
+    func configurarPushRefresh(){
+        self.tableView.addSubview(self.refreshControl)
+    }
+    
+    func handleRefresh(refreshControl: UIRefreshControl) {
+        configurarDados()
+        self.tableView.reloadData()
+        refreshControl.endRefreshing()
+    }
+}
 
 

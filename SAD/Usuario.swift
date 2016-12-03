@@ -20,14 +20,7 @@ class Usuario: Object {
     override static func primaryKey() -> String? {
         return "id"
     }
-    
-
-    
 }
-
-
-
-
 
 /***
  
@@ -127,68 +120,38 @@ extension Usuario {
             return false
         }
     }
+    
+    
     func carregaConfiguracao(realm: Realm) {
-        do {
-            
-            let predicate = "id=\(self.id) configuracao.id != 0"
-            
-            let usuarios = realm.objects(Usuario.self).filter(predicate)
-            
-            if let usuario = usuarios.first {
-                self.id = usuario.id
-                self.email = usuario.email
-                self.logado = usuario.logado
-                self.senha = usuario.senha
-                self.configuracao = usuario.configuracao
-                self.glicemias = usuario.glicemias
-            }
-            
-        }catch let error as NSError{
-            print(error)
+        let predicate = "id=\(self.id) configuracao.id != 0"
+        
+        let usuarios = realm.objects(Usuario.self).filter(predicate)
+        
+        if let usuario = usuarios.first {
+            self.id = usuario.id
+            self.email = usuario.email
+            self.logado = usuario.logado
+            self.senha = usuario.senha
+            self.configuracao = usuario.configuracao
+            self.glicemias = usuario.glicemias
         }
     }
     
     func hasUsuarioLogado(realm: Realm) -> Bool {
+        let usuarios = realm.objects(Usuario.self).filter("logado = true")
         
-        
-        do {
-            let usuarios = realm.objects(Usuario.self).filter("logado = true")
+        if let usuario = usuarios.first {
+            self.id = usuario.id
+            self.email = usuario.email
+            self.logado = usuario.logado
+            self.senha = usuario.senha
+            self.configuracao = usuario.configuracao
+            self.glicemias = usuario.glicemias
             
-            if let usuario = usuarios.first {
-                self.id = usuario.id
-                self.email = usuario.email
-                self.logado = usuario.logado
-                self.senha = usuario.senha
-                self.configuracao = usuario.configuracao
-                self.glicemias = usuario.glicemias
-
-                
-                
-                return true
-            } else {
-                return false
-            }
-            
-        }catch let error as NSError{
-            print(error)
+            return true
+        } else {
             return false
         }
-        
-    }
-    
-    
-    func todasDatasEntre(primeiraDt: NSDate, segundaDt: NSDate){
-        
-        do{
-            
-           let realm = try Realm()
-           realm.objects(Usuario.self).filter("configuracao.dt")
-            
-        } catch let error as NSError {
-            print(error)
-        }
-        
-        
     }
     
 }
