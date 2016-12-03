@@ -69,10 +69,10 @@ class RealizarExameViewController: UIViewController {
         guard let glicemia = Double(self.glicemiaField.text!) else {return}
         
         if configuracao.maiorGlicemia > glicemia || glicemia > configuracao.menorGlicemia {
-            observacoesShow(true)
+            observacoesShow(false)
             
         } else {
-            observacoesShow(false)
+            observacoesShow(true)
             
         }
         
@@ -120,15 +120,5 @@ class RealizarExameViewController: UIViewController {
         observacoesShow(false)
         adicionarBtnAtivado(false)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

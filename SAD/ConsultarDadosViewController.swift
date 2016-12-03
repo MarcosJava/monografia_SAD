@@ -12,7 +12,6 @@ import RealmSwift
 class ConsultarDadosViewController: UIViewController{
 
     @IBOutlet weak var tableView: UITableView!
-
     @IBOutlet weak var dtPrimeiraField: UITextField!
     @IBOutlet weak var dtSegundaField: UITextField!
     
@@ -38,7 +37,6 @@ class ConsultarDadosViewController: UIViewController{
     var textoFormato: () -> (UIFont) = {
         UIFont(name: "Avenir Next", size:15)!
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -111,26 +109,16 @@ class ConsultarDadosViewController: UIViewController{
             dtSegundaField.text = dateFormatter.string(from: sender.date)
             dtPrimeiraField.text = dateFormatter.string(from: sender.date)
         }
-        
     }
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
 
+
+
+
+
 extension ConsultarDadosViewController: UITableViewDelegate, UITableViewDataSource {
-    
     override func viewDidAppear(_ animated: Bool) {
         if glicemias.count > 1 {
             let index = IndexPath(row: 1, section: 0)
@@ -145,7 +133,8 @@ extension ConsultarDadosViewController: UITableViewDelegate, UITableViewDataSour
     func numberOfSections(in tableView: UITableView) -> Int {
         
         if (glicemias.count > 0) {
-            self.tableView.separatorStyle = .singleLine
+            tableView.separatorStyle = .singleLine
+            tableView.backgroundView = nil
             return 1;
             
         } else {
@@ -160,8 +149,8 @@ extension ConsultarDadosViewController: UITableViewDelegate, UITableViewDataSour
             messageLabel.font = textoFormato()
             messageLabel.sizeToFit()
             
-            self.tableView.backgroundView = messageLabel;
-            self.tableView.separatorStyle = .none;
+            tableView.backgroundView = messageLabel;
+            tableView.separatorStyle = .none;
             
         }
         
@@ -181,8 +170,14 @@ extension ConsultarDadosViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+       
         if editingStyle == .delete {
+            
+            let glicemia:Glicemia = glicemias[indexPath.row]
+            glicemia.delete()
+            
             glicemias.remove(at: indexPath.row)
+            
             tableView.reloadData()
         }
         

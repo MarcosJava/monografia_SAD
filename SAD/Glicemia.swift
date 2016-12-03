@@ -59,6 +59,18 @@ extension Glicemia {
             fatalError(error.localizedDescription)
         }
     }
+    
+    func delete() {
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.delete(self)
+            }
+            
+        } catch let error as NSError {
+            fatalError(error.localizedDescription)
+        }
+    }
 
     
 }

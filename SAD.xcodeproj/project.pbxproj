@@ -14,6 +14,12 @@
 		18080BC11DB9AFCB0040EF40 /* ConsultarDadosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18080BC01DB9AFCB0040EF40 /* ConsultarDadosViewController.swift */; };
 		18080BC31DB9B3CE0040EF40 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18080BC21DB9B3CE0040EF40 /* DashboardViewController.swift */; };
 		180DA6E11DD6A1C10080FB47 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 180DA6E01DD6A1C10080FB47 /* Images.xcassets */; };
+		1815BA0B1DF30868008CED50 /* icon_pendencia.png in Resources */ = {isa = PBXBuildFile; fileRef = 1815BA0A1DF30868008CED50 /* icon_pendencia.png */; };
+		1815BA0E1DF33734008CED50 /* MenuEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1815BA0D1DF33734008CED50 /* MenuEnum.swift */; };
+		1815BA111DF34419008CED50 /* DetalheExameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1815BA0F1DF34419008CED50 /* DetalheExameViewController.swift */; };
+		1815BA121DF34419008CED50 /* DetalheExameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1815BA101DF34419008CED50 /* DetalheExameViewController.xib */; };
+		1815BA141DF3457B008CED50 /* MaximoGlicemiaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1815BA131DF3457B008CED50 /* MaximoGlicemiaViewController.swift */; };
+		1815BA171DF3573A008CED50 /* DeatalheGlicemia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1815BA161DF3573A008CED50 /* DeatalheGlicemia.swift */; };
 		1848E9861DE1469D00C5BC91 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1848E9851DE1469D00C5BC91 /* GoogleService-Info.plist */; };
 		1848E98A1DE1503800C5BC91 /* DadosFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848E9891DE1503800C5BC91 /* DadosFirebase.swift */; };
 		1848E98C1DE1504F00C5BC91 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848E98B1DE1504F00C5BC91 /* Firebase.swift */; };
@@ -84,6 +90,12 @@
 		18080BC01DB9AFCB0040EF40 /* ConsultarDadosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConsultarDadosViewController.swift; path = SAD/ConsultarDadosViewController.swift; sourceTree = SOURCE_ROOT; };
 		18080BC21DB9B3CE0040EF40 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DashboardViewController.swift; path = SAD/DashboardViewController.swift; sourceTree = SOURCE_ROOT; };
 		180DA6E01DD6A1C10080FB47 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		1815BA0A1DF30868008CED50 /* icon_pendencia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_pendencia.png; sourceTree = "<group>"; };
+		1815BA0D1DF33734008CED50 /* MenuEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuEnum.swift; sourceTree = SOURCE_ROOT; };
+		1815BA0F1DF34419008CED50 /* DetalheExameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetalheExameViewController.swift; path = SAD/DetalheExameViewController.swift; sourceTree = SOURCE_ROOT; };
+		1815BA101DF34419008CED50 /* DetalheExameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DetalheExameViewController.xib; path = SAD/DetalheExameViewController.xib; sourceTree = SOURCE_ROOT; };
+		1815BA131DF3457B008CED50 /* MaximoGlicemiaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MaximoGlicemiaViewController.swift; path = SAD/MaximoGlicemiaViewController.swift; sourceTree = SOURCE_ROOT; };
+		1815BA161DF3573A008CED50 /* DeatalheGlicemia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeatalheGlicemia.swift; sourceTree = "<group>"; };
 		1848E9851DE1469D00C5BC91 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1848E9891DE1503800C5BC91 /* DadosFirebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DadosFirebase.swift; sourceTree = "<group>"; };
 		1848E98B1DE1504F00C5BC91 /* Firebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
@@ -163,12 +175,15 @@
 		18080BB81DB9A1DA0040EF40 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				1815BA0F1DF34419008CED50 /* DetalheExameViewController.swift */,
+				1815BA0C1DF33725008CED50 /* enums */,
 				18B1FD421DD724A700E04F37 /* ConfiguracoesViewController.swift */,
 				18080BBE1DB9AF3C0040EF40 /* MenuViewController.swift */,
 				18080BC01DB9AFCB0040EF40 /* ConsultarDadosViewController.swift */,
 				18080BC21DB9B3CE0040EF40 /* DashboardViewController.swift */,
 				1865648D1DC97D090075FAAA /* CadastrarUsuarioViewController.swift */,
 				18E93FAE1DD2816B001A7D5F /* RealizarExameViewController.swift */,
+				1815BA131DF3457B008CED50 /* MaximoGlicemiaViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -176,6 +191,7 @@
 		18080BB91DB9A1F80040EF40 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1815BA101DF34419008CED50 /* DetalheExameViewController.xib */,
 				1865648F1DC97E7F0075FAAA /* Colors.swift */,
 			);
 			name = Views;
@@ -184,6 +200,7 @@
 		18080BBD1DB9A64D0040EF40 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1815BA151DF35725008CED50 /* ViewModel */,
 				185A57021DE3D2F200B8FE79 /* DTOService */,
 				18C378471DCA621200098937 /* Entity */,
 			);
@@ -193,6 +210,7 @@
 		180DA6D31DD698400080FB47 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				1815BA0A1DF30868008CED50 /* icon_pendencia.png */,
 				18CA7F6B1DE5893D00B34821 /* arrows */,
 				18D393301DDE7ADE0037FA33 /* Icon-App-60x60@2x.png */,
 				18D393361DDE7C3B0037FA33 /* Icon-App-29x29@3x.png */,
@@ -204,6 +222,22 @@
 				18B1FD461DD754BC00E04F37 /* user.jpeg */,
 			);
 			name = Sources;
+			sourceTree = "<group>";
+		};
+		1815BA0C1DF33725008CED50 /* enums */ = {
+			isa = PBXGroup;
+			children = (
+				1815BA0D1DF33734008CED50 /* MenuEnum.swift */,
+			);
+			name = enums;
+			sourceTree = "<group>";
+		};
+		1815BA151DF35725008CED50 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1815BA161DF3573A008CED50 /* DeatalheGlicemia.swift */,
+			);
+			name = ViewModel;
 			sourceTree = "<group>";
 		};
 		1848E9871DE14F2000C5BC91 /* Networking */ = {
@@ -496,7 +530,9 @@
 				184F33A21DDD4F6600867076 /* LaunchScreen.storyboard in Resources */,
 				18D3932E1DDE70910037FA33 /* iconSAD120x120.png in Resources */,
 				18CA7F6F1DE5893D00B34821 /* up_red.png in Resources */,
+				1815BA121DF34419008CED50 /* DetalheExameViewController.xib in Resources */,
 				18A262CE1DB830FA002E32A2 /* Main.storyboard in Resources */,
+				1815BA0B1DF30868008CED50 /* icon_pendencia.png in Resources */,
 				1848E9861DE1469D00C5BC91 /* GoogleService-Info.plist in Resources */,
 				18CA7F6E1DE5893D00B34821 /* down_red.png in Resources */,
 			);
@@ -572,6 +608,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18B1FD431DD724A700E04F37 /* ConfiguracoesViewController.swift in Sources */,
+				1815BA141DF3457B008CED50 /* MaximoGlicemiaViewController.swift in Sources */,
 				18B1FD451DD7507B00E04F37 /* UITextView+Designer.swift in Sources */,
 				1848E98A1DE1503800C5BC91 /* DadosFirebase.swift in Sources */,
 				18CA7F6A1DE5870A00B34821 /* Mensagens.swift in Sources */,
@@ -582,6 +619,7 @@
 				18080BC11DB9AFCB0040EF40 /* ConsultarDadosViewController.swift in Sources */,
 				18080BBF1DB9AF3C0040EF40 /* MenuViewController.swift in Sources */,
 				1848E98C1DE1504F00C5BC91 /* Firebase.swift in Sources */,
+				1815BA171DF3573A008CED50 /* DeatalheGlicemia.swift in Sources */,
 				18A262D11DB830FA002E32A2 /* SAD.xcdatamodeld in Sources */,
 				185A57081DE3D33100B8FE79 /* UsuarioFirebase.swift in Sources */,
 				18A262C91DB830FA002E32A2 /* AppDelegate.swift in Sources */,
@@ -589,11 +627,13 @@
 				18080BC31DB9B3CE0040EF40 /* DashboardViewController.swift in Sources */,
 				185A57061DE3D32300B8FE79 /* ConfiguracaoFirebase.swift in Sources */,
 				185A570A1DE3D35200B8FE79 /* GlicemiaFirebase.swift in Sources */,
+				1815BA0E1DF33734008CED50 /* MenuEnum.swift in Sources */,
 				1806C8CF1DD569400097A198 /* UIViewController+Keyboard.swift in Sources */,
 				18C955031DE27E9D0041B44F /* Constants.swift in Sources */,
 				1865648E1DC97D090075FAAA /* CadastrarUsuarioViewController.swift in Sources */,
 				186564931DC987C60075FAAA /* Regex.swift in Sources */,
 				18E93FAF1DD2816B001A7D5F /* RealizarExameViewController.swift in Sources */,
+				1815BA111DF34419008CED50 /* DetalheExameViewController.swift in Sources */,
 				18E93FB81DD29C79001A7D5F /* Configuracao.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
