@@ -26,6 +26,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        capturaUsuario()
         completandoArrayMenu()
         configurandoTableView()
      
@@ -57,13 +58,13 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         arrayMenu.append(.maiorGlicemia)
         arrayMenu.append(.menorGlicemia)
         arrayMenu.append(.dados)
+        //arrayMenu.append(.sincronizar)
     }
     
     func existeMaiorOuMenor(){
         guard let glicemias = usuario?.glicemias else {return }
         
         if glicemias.count > 2 {
-            
             let valores = glicemias.map{property in property.valorGlicemico}
             minGlicemia = valores.min() ?? 0
             maxGlicemia = valores.max() ?? 0
@@ -93,9 +94,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        
         if(self.usuario != nil) {
-            
             let menuEnum = arrayMenu[indexPath.row]
             
             switch menuEnum {
@@ -107,7 +106,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
                 goConsultar()
                 
             case .grafico:
-                print("GRAFICO")
+                goGrafico()
                 
             case .maiorGlicemia:
                 maiorGlicemia()
@@ -117,10 +116,17 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
             case .dados:
                 goConfiguracao()
+                
+            case .sincronizar:
+                realizaSincronizacao()
             }
             self.tableView.deselectRow(at: indexPath, animated: true)
 
         }
+    }
+    
+    func realizaSincronizacao(){
+        let _ = FirebaseConfig()
     }
     
     func realizandoExames(){
@@ -147,7 +153,6 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             let pressaoValue = "\(glicemia.pressaoMenor) por \(glicemia.pressaoMaior)"
             let observacaoValue = glicemia.observacao
             
-            
             let df = DateFormatter()
             df.dateFormat = "dd/MM/yyyy"
             
@@ -155,19 +160,12 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             let maiorConfigValue = configuracao.maiorGlicemia.description
             let menorConfigValue = configuracao.menorGlicemia.description
             
-            
-            
             let detalhes = DeatalheGlicemia(glicemia: glicemiaValue, taxaHormonal: txHormonalValue, pressao: pressaoValue, observacao: observacaoValue, dtExame: dtExameValue, maiorGlicemia: maiorConfigValue, menorGlicemia: menorConfigValue)
             
             goDetalheGlicemia(detalhe: detalhes)
-            
-            
         } else {
             mensagem.alertaSucesso(titulo: "Atenção", mensagem: "Para realizar esta função necessita de 2 ou mais exames", view: self)
         }
-        
-        
-        //goMaiorGlicemia(detalhe: )
     }
     
     func menorGlicemia(){
@@ -184,7 +182,6 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             let pressaoValue = "\(glicemia.pressaoMenor) por \(glicemia.pressaoMaior)"
             let observacaoValue = glicemia.observacao
             
-            
             let df = DateFormatter()
             df.dateFormat = "dd/MM/yyyy"
             
@@ -192,15 +189,16 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             let maiorConfigValue = configuracao.maiorGlicemia.description
             let menorConfigValue = configuracao.menorGlicemia.description
             
-            
-            
             let detalhes = DeatalheGlicemia(glicemia: glicemiaValue, taxaHormonal: txHormonalValue, pressao: pressaoValue, observacao: observacaoValue, dtExame: dtExameValue, maiorGlicemia: maiorConfigValue, menorGlicemia: menorConfigValue)
             
             goDetalheGlicemia(detalhe: detalhes)
-            
         } else {
             mensagem.alertaSucesso(titulo: "Atenção", mensagem: "Para realizar esta função necessita de 2 ou mais exames", view: self)
         }
+    }
+    
+    func goGrafico(){
+        self.performSegue(withIdentifier: "goGrafico", sender: nil)
     }
     
     func goRealizarExames(){

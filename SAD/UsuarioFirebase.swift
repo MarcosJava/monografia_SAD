@@ -16,6 +16,7 @@ struct UsuarioFirebase: Unmarshaling {
     var senha:String
     var logado:Bool
     var configuracao:Int = 0
+    var glicemias = Array<GlicemiaFirebase>()
     
     init(object: MarshaledObject) throws {
         id = try object.value(for: "id")
@@ -43,7 +44,8 @@ extension UsuarioFirebase: Marshaling {
              "email": self.email,
              "senha": self.senha,
              "logado": self.logado,
-             "configuracao": self.configuracao]
+             "configuracao": self.configuracao,
+             "glicemias": self.glicemias]
             }()
     }
 }

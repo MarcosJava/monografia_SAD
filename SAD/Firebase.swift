@@ -16,14 +16,18 @@ class FirebaseConfig {
     init() {
         
         print("AGORAAAA !!!")
-        let usuario = UsuarioFirebase(id: 0, email: "mfelipesp@gmail.com", senha: "123", logado: true, configuracao: 1)
+        var usuario = UsuarioFirebase(id: 0, email: "mfelipesp@gmail.com", senha: "123", logado: true, configuracao: 1)
+        
+        let glicemia = GlicemiaFirebase(id: 1, dtCadastro: "10/12/2016", observacao: "comi muito", excluido: false, valorGlicemico: 23.3, pressaoMenor: 23, pressaoMaior: 12, configuracao: 1, sincronizado: false, taxaHormonal: 4332)
+        
+        usuario.glicemias.append(glicemia)
         
         print(usuario.marshaled())
 //        
 //        
 //        reference.child("SAD").setValue(usuario)
         let array = [usuario.marshaled(), usuario.marshaled(), usuario.marshaled()]
-        reference.child("0").setValue(array)
+        reference.child(usuario.id.description).setValue(array)
 //
         reference.observe(.childAdded, with: { (snapshot) in
             

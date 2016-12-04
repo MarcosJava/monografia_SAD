@@ -17,6 +17,7 @@ enum MenuEnum: String {
     case maiorGlicemia = "Maior Clicemia"
     case menorGlicemia = "Menor Clicemia"
     case dados = "Dados"
+    case sincronizar = "Sincronizar"
     
     
 }

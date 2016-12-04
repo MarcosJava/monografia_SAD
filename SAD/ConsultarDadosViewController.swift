@@ -135,6 +135,11 @@ class ConsultarDadosViewController: UIViewController{
         
         return !maiorQue(glicemia.valorGlicemico, configuracao.menorGlicemia)
     }
+    
+    func goDetalheGlicemia(detalhe: DeatalheGlicemia){
+        let vcDetalhes = DetalheExameViewController(detalhesGlicemico: detalhe)
+        navigationController?.pushViewController(vcDetalhes, animated: true)
+    }
 
 }
 
@@ -144,6 +149,7 @@ class ConsultarDadosViewController: UIViewController{
 
 
 extension ConsultarDadosViewController: UITableViewDelegate, UITableViewDataSource {
+    
     override func viewDidAppear(_ animated: Bool) {
         if glicemias.count > 1 {
             let index = IndexPath(row: 1, section: 0)
@@ -185,9 +191,7 @@ extension ConsultarDadosViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "Cell")
-        
         let glicemia:Glicemia = glicemias[indexPath.row]
-        
         
         let putGreen = glicemiaEhMaior(glicemia: glicemia)
         let putRed = glicemiaEhMenor(glicemia: glicemia)
@@ -203,10 +207,16 @@ extension ConsultarDadosViewController: UITableViewDelegate, UITableViewDataSour
         cell.textLabel?.text = "Dados glicemicos: \(glicemia.valorGlicemico)"
         cell.detailTextLabel?.text = "data: \(dateFormatter.string(from: glicemia.dtCadastro as Date))"
         cell.textLabel?.font = textoFormato()
+        
+        
+        let gestureTap = UITapGestureRecognizer(target: self, action: #selector(ConsultarDadosViewController.tapCell))
+        cell.addGestureRecognizer(gestureTap)
         return cell
     }
     
-    
+    func tapCell(){
+        print("Veiooo aki")
+    }
     
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -220,17 +230,38 @@ extension ConsultarDadosViewController: UITableViewDelegate, UITableViewDataSour
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         let glicemia:Glicemia = glicemias[indexPath.row]
         print(glicemia)
         
-        //self.tableView.deselectRow(at: indexPath, animated: true)
+        let configuracao = Configuracao()
+        configuracao.id = glicemia.configuracao
+        configuracao.configuracaoComId(realm: try! Realm())
         
+        let glicemiaValue = glicemia.valorGlicemico.description
+        let taxaHormonal = glicemia.taxaHormonal.description
+        let pressao = "\(glicemia.pressaoMenor) por \(glicemia.pressaoMaior)"
+        let observacao = glicemia.observacao
+        
+        let df = DateFormatter()
+        df.dateFormat = "dd/MM/yyyy"
+        let dtExame = df.string(from: glicemia.dtCadastro as Date)
+        
+        let maiorGlicemia = configuracao.maiorGlicemia.description
+        let menorGlicemia = configuracao.menorGlicemia.description
+        
+        let detalhe = DeatalheGlicemia(glicemia: glicemiaValue, taxaHormonal: taxaHormonal, pressao: pressao, observacao: observacao, dtExame: dtExame, maiorGlicemia: maiorGlicemia, menorGlicemia: menorGlicemia)
+        
+        goDetalheGlicemia(detalhe: detalhe)
+        //self.tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         print("akii ooh")
         return indexPath
+    }
+    
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "Vai deletar ?"
     }
     
 }

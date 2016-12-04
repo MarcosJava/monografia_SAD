@@ -23,6 +23,8 @@ struct GlicemiaFirebase : Unmarshaling{
     var sincronizado:Bool
     
     
+    
+    
     init(object: MarshaledObject) throws {
         id = try object.value(for: "id")
         dtCadastro = try object.value(for: "dtCadastro")
@@ -36,5 +38,36 @@ struct GlicemiaFirebase : Unmarshaling{
         sincronizado = try object.value(for: "sincronizado")
     }
     
+    init(id: Int, dtCadastro:String, observacao:String, excluido:Bool, valorGlicemico:Double, pressaoMenor:Double, pressaoMaior:Double, configuracao:Int, sincronizado: Bool, taxaHormonal:Double){
+        
+        self.id = id
+        self.observacao = observacao
+        self.excluido = excluido
+        self.valorGlicemico = valorGlicemico
+        self.pressaoMaior = pressaoMaior
+        self.pressaoMenor = pressaoMenor
+        self.configuracao = configuracao
+        self.sincronizado = sincronizado
+        self.dtCadastro = dtCadastro
+        self.taxaHormonal = taxaHormonal
+    }
 
+}
+
+extension GlicemiaFirebase: Marshaling {
+    
+    func marshaled() -> [String: Any] {
+        return {[
+            "id": self.id,
+            "observacao": self.observacao,
+            "dtCadastro": self.dtCadastro,
+            "excluido": self.excluido,
+            "configuracao": self.configuracao,
+            "valorGlicemico": self.valorGlicemico,
+            "pressaoMaior": self.pressaoMaior,
+            "pressaoMenor": self.pressaoMenor,
+            "sincronizado": self.sincronizado,
+            "taxaHormonal": self.taxaHormonal]
+            }()
+    }
 }

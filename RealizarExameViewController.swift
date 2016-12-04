@@ -19,6 +19,7 @@ class RealizarExameViewController: UIViewController {
     @IBOutlet weak var observacaoLabel: UILabel!
     @IBOutlet weak var observacaoField: UITextField!
     @IBOutlet weak var adicionarBtn: UIButton!
+    @IBOutlet weak var dtExameField: UITextField!
     
     var usuario = Usuario()
     var glicemia = Glicemia()
@@ -93,13 +94,24 @@ class RealizarExameViewController: UIViewController {
         let pressaoMin = Double(pressaoMinimaField.text!) ?? 0.0
         let pressaoMax = Double(pressaoMaximaField.text!) ?? 0.0
         
+        
+        
+        
+        let df = DateFormatter()
+        df.dateFormat = "dd/MM/yyyy"
+        
+        var dtExame = Date()
+        if let dt = dtExameField.text {
+            dtExame = df.date(from: dt)!
+        }
+        
         self.glicemia.configuracao = self.configuracao.id
         self.glicemia.taxaHormonal = txHormonal
         self.glicemia.valorGlicemico = glicemia
         self.glicemia.pressaoMaior = pressaoMax
         self.glicemia.pressaoMenor = pressaoMin
         self.glicemia.observacao = observacao
-        
+        self.glicemia.dtCadastro = dtExame as NSDate
         self.glicemia.save(usuario: self.usuario)
         
         let mensagem = MensagensUtil()
@@ -109,12 +121,28 @@ class RealizarExameViewController: UIViewController {
         
     }
     
+    @IBAction func dtExameEditingBegin(_ sender: Any) {
+        let datepicker = UIDatePicker()
+        datepicker.datePickerMode = .date
+        dtExameField.inputView = datepicker
+        datepicker.addTarget(self, action: #selector(RealizarExameViewController.changeValueDtExame), for: .valueChanged)
+    }
+    
+    func changeValueDtExame(sender: UIDatePicker){
+        let df = DateFormatter()
+        df.dateFormat = "dd/MM/yyyy"
+        dtExameField.text = df.string(from: sender.date)
+        
+    }
+    
+    
     func resetFormularios(){
         self.glicemiaField.text = ""
         self.pressaoMinimaField.text = ""
         self.pressaoMaximaField.text = ""
         self.taxaHormonalField.text = ""
         self.observacaoField.text = ""
+        self.dtExameField.text = ""
         self.glicemia = Glicemia()
         
         observacoesShow(false)
