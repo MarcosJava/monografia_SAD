@@ -24,6 +24,8 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var pendenciaBtn: UIButton!
     @IBOutlet weak var configuracaoLabel: UILabel!
     
+    let mensagem = MensagensUtil()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         super.hideKeyboardWhenTappedAround()
@@ -78,6 +80,71 @@ class DashboardViewController: UIViewController {
             maiorTextLabel.text = "0"
             menorTextLabel.text = "0"
         }
+        
+    }
+    
+    
+    
+    func completeMaxOrMinGlicemia(max: Bool) -> DeatalheGlicemia? {
+        
+        guard let maxGlicemia = usuario?.glicemias.count else {
+            mensagem.alertaSucesso(titulo: "Atenção", mensagem: "Para realizar esta função necessita de 2 ou mais exames", view: self)
+            return nil;
+        }
+        
+        if maxGlicemia > 0 {
+            
+            var glicemia:Glicemia
+            
+            if max {
+                 glicemia = usuario!.glicemias.sorted(by: {$0.valorGlicemico > $1.valorGlicemico}).first!
+            } else {
+                 glicemia = usuario!.glicemias.sorted(by: {$0.valorGlicemico < $1.valorGlicemico}).first!
+            }
+            
+            let configuracao = Configuracao()
+            configuracao.id = glicemia.configuracao
+            configuracao.configuracaoComId(realm: try! Realm())
+            
+            let glicemiaValue = glicemia.valorGlicemico.description
+            let txHormonalValue = glicemia.taxaHormonal.description
+            let pressaoValue = "\(glicemia.pressaoMenor) por \(glicemia.pressaoMaior)"
+            let observacaoValue = glicemia.observacao
+            
+            
+            let df = DateFormatter()
+            df.dateFormat = "dd/MM/yyyy"
+            
+            let dtExameValue = df.string(from: glicemia.dtCadastro as Date)
+            let maiorConfigValue = configuracao.maiorGlicemia.description
+            let menorConfigValue = configuracao.menorGlicemia.description
+            
+            
+            
+            let detalhes = DeatalheGlicemia(glicemia: glicemiaValue, taxaHormonal: txHormonalValue, pressao: pressaoValue, observacao: observacaoValue, dtExame: dtExameValue, maiorGlicemia: maiorConfigValue, menorGlicemia: menorConfigValue)
+            
+            return detalhes
+            
+            
+        } else {
+            mensagem.alertaSucesso(titulo: "Atenção", mensagem: "Para realizar esta função necessita de 2 ou mais exames", view: self)
+            return nil
+        }
+
+    }
+    
+    
+    @IBAction func maiorGlicemia(_ sender: Any) {
+        guard let detalhe = completeMaxOrMinGlicemia(max: true) else { return }
+        let vcDetalhes = DetalheExameViewController(detalhesGlicemico: detalhe)
+        navigationController?.pushViewController(vcDetalhes, animated: true)
+        
+        
+    }
+    @IBAction func menorGlicemia(_ sender: Any) {
+        guard let detalhe = completeMaxOrMinGlicemia(max: false) else { return }
+        let vcDetalhes = DetalheExameViewController(detalhesGlicemico: detalhe)
+        navigationController?.pushViewController(vcDetalhes, animated: true)
         
     }
     

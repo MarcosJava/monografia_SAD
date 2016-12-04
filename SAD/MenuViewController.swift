@@ -26,19 +26,14 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        capturaUsuario()
         completandoArrayMenu()
-        existeMaiorOuMenor()
         configurandoTableView()
      
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.usuario = Usuario()
-        let realm = try! Realm()
-        
-        _ = usuario.hasUsuarioLogado(realm: realm)
-        print(usuario)
+        capturaUsuario()
+        existeMaiorOuMenor()
         tableView.reloadData()
     }
     
@@ -76,22 +71,15 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "Cell")
-        
         let menu = arrayMenu[indexPath.row]
-        
-        if  menu == .realizarExames && usuario.configuracao == 0 {
+        if  (menu == .realizarExames && usuario.configuracao == 0) //Configuracao
+                    || (menu == .maiorGlicemia && maxGlicemia == 0) //Maior
+                    || (menu == .menorGlicemia && minGlicemia == 0) { //Menor
+            
             cell.textLabel?.isEnabled = false
         }
-        
-        if menu == .maiorGlicemia && maxGlicemia == 0 {
-            cell.textLabel?.isEnabled = false
-        }
-        
-        if menu == .menorGlicemia && minGlicemia == 0 {
-            cell.textLabel?.isEnabled = false
-        }
-        
         
         cell.textLabel?.text = menu.rawValue
         cell.textLabel?.font = UIFont(name: "Avenir Next", size:15)
@@ -128,7 +116,6 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
                 menorGlicemia()
                 
             case .dados:
-                print("Dados")
                 goConfiguracao()
             }
             self.tableView.deselectRow(at: indexPath, animated: true)
@@ -152,7 +139,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             let glicemia:Glicemia = usuario.glicemias.sorted(by: {$0.valorGlicemico > $1.valorGlicemico}).first!
             
             let configuracao = Configuracao()
-            configuracao.id = usuario.configuracao
+            configuracao.id = glicemia.configuracao
             configuracao.configuracaoComId(realm: try! Realm())
             
             let glicemiaValue = glicemia.valorGlicemico.description
@@ -189,7 +176,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             let glicemia:Glicemia = usuario.glicemias.sorted(by: {$0.valorGlicemico < $1.valorGlicemico}).first!
             
             let configuracao = Configuracao()
-            configuracao.id = usuario.configuracao
+            configuracao.id = glicemia.configuracao
             configuracao.configuracaoComId(realm: try! Realm())
             
             let glicemiaValue = glicemia.valorGlicemico.description

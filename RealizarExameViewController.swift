@@ -68,11 +68,11 @@ class RealizarExameViewController: UIViewController {
         
         guard let glicemia = Double(self.glicemiaField.text!) else {return}
         
-        if configuracao.maiorGlicemia > glicemia || glicemia > configuracao.menorGlicemia {
-            observacoesShow(false)
+        if   glicemia > configuracao.maiorGlicemia ||  glicemia < configuracao.menorGlicemia {
+            observacoesShow(true)
             
         } else {
-            observacoesShow(true)
+            observacoesShow(false)
             
         }
         

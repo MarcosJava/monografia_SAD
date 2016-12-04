@@ -28,6 +28,10 @@ class Colors {
         return UIColor(netHex: 0xBBE7F8)
     }
     
+    func getRedLight() -> UIColor {
+        return UIColor(netHex: 0xE57373)
+    }
+    
 }
 
 

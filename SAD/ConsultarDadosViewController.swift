@@ -110,6 +110,31 @@ class ConsultarDadosViewController: UIViewController{
             dtPrimeiraField.text = dateFormatter.string(from: sender.date)
         }
     }
+    
+    var maiorQue: (Double, Double) -> Bool = {
+        if $0 > $1 {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func glicemiaEhMaior(glicemia: Glicemia) -> Bool{
+        let configuracao = Configuracao()
+        configuracao.id = glicemia.configuracao
+        configuracao.configuracaoComId(realm: try! Realm())
+        
+        return maiorQue(glicemia.valorGlicemico, configuracao.maiorGlicemia)
+
+    }
+    
+    func glicemiaEhMenor(glicemia: Glicemia) -> Bool{
+        let configuracao = Configuracao()
+        configuracao.id = glicemia.configuracao
+        configuracao.configuracaoComId(realm: try! Realm())
+        
+        return !maiorQue(glicemia.valorGlicemico, configuracao.menorGlicemia)
+    }
 
 }
 
@@ -163,24 +188,49 @@ extension ConsultarDadosViewController: UITableViewDelegate, UITableViewDataSour
         
         let glicemia:Glicemia = glicemias[indexPath.row]
         
+        
+        let putGreen = glicemiaEhMaior(glicemia: glicemia)
+        let putRed = glicemiaEhMenor(glicemia: glicemia)
+        let color = Colors()
+        
+        if putGreen {
+            cell.backgroundColor = color.getLightGreen()
+        }
+        if putRed {
+            cell.backgroundColor = color.getRedLight()
+        }
+        
         cell.textLabel?.text = "Dados glicemicos: \(glicemia.valorGlicemico)"
         cell.detailTextLabel?.text = "data: \(dateFormatter.string(from: glicemia.dtCadastro as Date))"
         cell.textLabel?.font = textoFormato()
         return cell
     }
     
+    
+    
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-       
         if editingStyle == .delete {
-            
             let glicemia:Glicemia = glicemias[indexPath.row]
             glicemia.delete()
-            
             glicemias.remove(at: indexPath.row)
-            
             tableView.reloadData()
         }
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        let glicemia:Glicemia = glicemias[indexPath.row]
+        print(glicemia)
+        
+        //self.tableView.deselectRow(at: indexPath, animated: true)
+        
+    }
+    
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        print("akii ooh")
+        return indexPath
     }
     
 }
