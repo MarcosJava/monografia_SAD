@@ -23,7 +23,12 @@ class RecuperarSenhaViewController: UIViewController, MFMailComposeViewControlle
     @IBOutlet weak var emailField: UITextField!
     
     @IBAction func recuperarSenha(_ sender: Any) {
-        let mailComposeViewController = configuredMailComposeViewController()
+        
+        guard let mailComposeViewController = configuredMailComposeViewController() else {
+            return
+        }
+        
+        
         if MFMailComposeViewController.canSendMail() {
             self.present(mailComposeViewController, animated: true, completion: nil)
         } else {
@@ -33,20 +38,43 @@ class RecuperarSenhaViewController: UIViewController, MFMailComposeViewControlle
         
     }
     
-    func configuredMailComposeViewController() -> MFMailComposeViewController {
+    @IBAction func voltarLogin(_ sender: Any) {
+        goInicial()
+    }
+    
+    func configuredMailComposeViewController() -> MFMailComposeViewController? {
         let mailComposerVC = MFMailComposeViewController()
-        mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
+        mailComposerVC.mailComposeDelegate = self
         
-        mailComposerVC.setToRecipients(["someone@somewhere.com"])
-        mailComposerVC.setSubject("Sua password do Sistema de Apoio Diabetico")
-        mailComposerVC.setMessageBody("Sua senha é : \(123)", isHTML: false)
+        guard let email = emailField.text else {
+            showErrorSemEmail()
+            return nil
+        }
+        
+        let usuarioTemp = Usuario()
+        guard let usuario = usuarioTemp.usuarioCom(email: email) else {return nil}
+        
+        print(usuario.description)
+        if usuario.email == email {
+            
+            mailComposerVC.setToRecipients([email])
+            mailComposerVC.setSubject("Sua password do Sistema de Apoio Diabetico")
+            mailComposerVC.setMessageBody("Sua senha é : \(usuario.senha)", isHTML: false)
+        }
+        
+        
         
         return mailComposerVC
     }
     
     func showSendMailErrorAlert() {
-        let sendMailErrorAlert = UIAlertView(title: "Não conseguiu enviar o email", message: "Seu dispositivo não envia email. Checa a configuração do seu email e tente novamnte.", delegate: self, cancelButtonTitle: "OK")
-        sendMailErrorAlert.show()
+        let mensagem = MensagensUtil()
+        mensagem.alertaSucesso(titulo: "Não conseguiu enviar o email", mensagem: "Seu dispositivo não envia email. Checa a configuração do seu email e tente novamnte.", view: self)
+    }
+    
+    func showErrorSemEmail() {
+        let mensagem = MensagensUtil()
+        mensagem.alertaSucesso(titulo: "Não conseguiu enviar o email", mensagem: "Digite um novo e-mail", view: self)
     }
     
     // MARK: MFMailComposeViewControllerDelegate Method

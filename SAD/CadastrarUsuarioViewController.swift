@@ -89,7 +89,15 @@ extension CadastrarUsuarioViewController {
         
         if(emailCorreto) {
             usuario.email = self.txtResposta.text!
-            setSenhaView();
+            
+            let usuarioTemp = usuario.usuarioCom(email: usuario.email)
+            
+            if usuarioTemp == nil {
+                setSenhaView();
+            } else {
+                showErro("E-mail já existente, informe outro email para cadastro ou recupere a senha.")
+                usuario.email = ""
+            }
             
         } else {
             showErro("Email esta fora do padrão")

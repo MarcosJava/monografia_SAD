@@ -45,10 +45,21 @@
                                 <color key="shadowColor" red="0.73333333333333328" green="0.90588235294117647" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0yj-DH-hoY">
-                                <rect key="frame" x="145" y="403" width="85" height="30"/>
+                                <rect key="frame" x="30" y="390" width="315" height="36"/>
+                                <color key="backgroundColor" red="0.95294117647058818" green="0.26666666666666666" blue="0.21568627450980393" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="F4h-8K-UMA"/>
+                                    <constraint firstAttribute="width" constant="315" id="Zxg-9P-ndo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <state key="normal" title="Cadastre-se">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="NUf-BQ-ecZ" kind="show" id="y7Q-0e-4Br"/>
                                 </connections>
@@ -69,8 +80,9 @@
                                     <action selector="entrar:" destination="BYZ-38-t0r" eventType="touchUpInside" id="L8V-zG-xeN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Bk-SH-5OI">
-                                <rect key="frame" x="122" y="480" width="131" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Bk-SH-5OI">
+                                <rect key="frame" x="122" y="479" width="131" height="30"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
                                 <state key="normal" title="Esqueci a senha ">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -87,21 +99,19 @@
                             <constraint firstItem="gcw-oC-Zgs" firstAttribute="top" secondItem="1c6-C8-s70" secondAttribute="bottom" constant="107" id="Bc6-jo-kAt"/>
                             <constraint firstAttribute="trailing" secondItem="D97-8Y-S5F" secondAttribute="trailing" id="EVa-k0-7E4"/>
                             <constraint firstItem="CLu-DC-BGA" firstAttribute="top" secondItem="1c6-C8-s70" secondAttribute="bottom" constant="77" id="GdM-2R-02C"/>
-                            <constraint firstItem="6Bk-SH-5OI" firstAttribute="top" secondItem="0yj-DH-hoY" secondAttribute="bottom" constant="47" id="Jdn-kw-Zjc"/>
                             <constraint firstItem="D97-8Y-S5F" firstAttribute="top" secondItem="gcw-oC-Zgs" secondAttribute="bottom" constant="8" id="Nk3-Fc-XTe"/>
+                            <constraint firstItem="6Bk-SH-5OI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RQu-Pr-RRy"/>
                             <constraint firstItem="mII-IF-Xtl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Udq-x8-QU4"/>
                             <constraint firstItem="CLu-DC-BGA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="W4i-y7-6Hk"/>
+                            <constraint firstItem="0yj-DH-hoY" firstAttribute="top" secondItem="D97-8Y-S5F" secondAttribute="bottom" constant="54" id="c1A-In-xnJ"/>
                             <constraint firstItem="mII-IF-Xtl" firstAttribute="top" secondItem="1c6-C8-s70" secondAttribute="bottom" constant="34" id="cfe-2f-Vm1"/>
-                            <constraint firstItem="6Bk-SH-5OI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="106" id="cy6-qp-dHn"/>
+                            <constraint firstItem="0yj-DH-hoY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="e3p-sC-k5k"/>
                             <constraint firstItem="gcw-oC-Zgs" firstAttribute="top" secondItem="CLu-DC-BGA" secondAttribute="bottom" id="fHS-TN-hOW"/>
-                            <constraint firstItem="0yj-DH-hoY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="129" id="nxA-pa-noq"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="0yj-DH-hoY" secondAttribute="trailing" constant="129" id="oaT-gJ-unD"/>
+                            <constraint firstItem="6Bk-SH-5OI" firstAttribute="top" secondItem="0yj-DH-hoY" secondAttribute="bottom" constant="53" id="iT7-42-RWo"/>
                             <constraint firstItem="gcw-oC-Zgs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ohB-W8-DxY"/>
                             <constraint firstItem="1c6-C8-s70" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="64" id="pFd-Ls-BY2"/>
                             <constraint firstAttribute="trailing" secondItem="CLu-DC-BGA" secondAttribute="trailing" id="qvi-Fo-fzH"/>
-                            <constraint firstItem="0yj-DH-hoY" firstAttribute="top" secondItem="D97-8Y-S5F" secondAttribute="bottom" constant="67" id="snr-NB-L7D"/>
                             <constraint firstItem="1c6-C8-s70" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tRk-da-5vY"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="6Bk-SH-5OI" secondAttribute="trailing" constant="106" id="uEB-uk-yuE"/>
                             <constraint firstItem="mII-IF-Xtl" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="uLH-N5-anY"/>
                             <constraint firstItem="D97-8Y-S5F" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zPn-kA-gZO"/>
                         </constraints>
@@ -747,15 +757,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="meu@email.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A04-Se-sRA">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="meu@email.com" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A04-Se-sRA">
                                 <rect key="frame" x="16" y="318" width="343" height="30"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8DA-Ue-jpw">
-                                <rect key="frame" x="223" y="272" width="136" height="38"/>
+                                <rect key="frame" x="116" y="356" width="143" height="45"/>
                                 <color key="backgroundColor" red="0.95294117647058818" green="0.26666666666666666" blue="0.21568627450980393" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <state key="normal" title="Recuperar Senha">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -771,15 +782,21 @@
                         </subviews>
                         <color key="backgroundColor" red="0.12941176470588234" green="0.58823529411764708" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="8DA-Ue-jpw" firstAttribute="trailing" secondItem="Imz-PM-qPU" secondAttribute="trailingMargin" id="HmH-mG-ZxM"/>
-                            <constraint firstItem="A04-Se-sRA" firstAttribute="top" secondItem="8DA-Ue-jpw" secondAttribute="bottom" constant="8" id="ZeQ-Pa-KWu"/>
+                            <constraint firstItem="8DA-Ue-jpw" firstAttribute="centerX" secondItem="Imz-PM-qPU" secondAttribute="centerX" id="cH7-up-USz"/>
                             <constraint firstItem="A04-Se-sRA" firstAttribute="trailing" secondItem="Imz-PM-qPU" secondAttribute="trailingMargin" id="eea-To-3pg"/>
                             <constraint firstItem="A04-Se-sRA" firstAttribute="centerX" secondItem="Imz-PM-qPU" secondAttribute="centerX" id="lY3-iC-DOf"/>
                             <constraint firstItem="A04-Se-sRA" firstAttribute="leading" secondItem="Imz-PM-qPU" secondAttribute="leadingMargin" id="pGG-bQ-0sk"/>
+                            <constraint firstItem="8DA-Ue-jpw" firstAttribute="top" secondItem="A04-Se-sRA" secondAttribute="bottom" constant="8" id="pNE-Y6-5Um"/>
                             <constraint firstItem="A04-Se-sRA" firstAttribute="centerY" secondItem="Imz-PM-qPU" secondAttribute="centerY" id="vg7-SA-SVb"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Recuperar Senha" id="5Lr-J2-a84"/>
+                    <navigationItem key="navigationItem" title="Recuperar Senha" id="5Lr-J2-a84">
+                        <barButtonItem key="leftBarButtonItem" title="Voltar" id="whe-x8-3s8">
+                            <connections>
+                                <action selector="voltarLogin:" destination="riq-XG-mCH" id="axP-E8-chx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="emailField" destination="A04-Se-sRA" id="4Ls-O8-Ybx"/>
                     </connections>

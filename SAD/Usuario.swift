@@ -121,6 +121,24 @@ extension Usuario {
         }
     }
     
+    func usuarioCom(email: String) -> Usuario? {
+        
+        do {
+            
+            let realm = try Realm()
+            let predicate = NSPredicate(format: "email == %@", argumentArray: [email])
+            let usuarios = realm.objects(Usuario.self).filter(predicate)
+            
+            if usuarios.first != nil {
+                return usuarios.first!
+            }
+            return nil
+        } catch let error as NSError {
+            fatalError("Erro ao descobrir se contem o usuario com o email \(error.localizedDescription)")
+        }
+        
+    }
+    
     
     func carregaConfiguracao(realm: Realm) {
         let predicate = "id=\(self.id) configuracao.id != 0"
