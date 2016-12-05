@@ -37,7 +37,7 @@ class GraficoViewController: UIViewController {
             dataEntries.append(dataEntry)
         }
         
-        let chartDataSet = BarChartDataSet(values: dataEntries, label: "Units Sold")
+        let chartDataSet = BarChartDataSet(values: dataEntries, label: "Qtde Glicemia")
         let chartData = BarChartData(dataSet: chartDataSet)
         barChartView.data = chartData
         

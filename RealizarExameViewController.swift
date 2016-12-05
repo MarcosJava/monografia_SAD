@@ -74,7 +74,7 @@ class RealizarExameViewController: UIViewController {
             
         } else {
             observacoesShow(false)
-            
+            observacaoField.text = ""
         }
         
         if glicemia > 1 {
