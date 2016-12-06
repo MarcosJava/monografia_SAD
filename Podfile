@@ -15,6 +15,8 @@ target 'SAD' do
     pod 'Firebase/Core'
     pod 'Firebase/Database'
     pod 'DatePickerDialog'
+    pod “TPKeyboardAvoiding”
+
 end
 
 post_install do |installer|

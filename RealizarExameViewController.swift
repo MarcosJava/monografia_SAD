@@ -21,6 +21,8 @@ class RealizarExameViewController: UIViewController {
     @IBOutlet weak var adicionarBtn: UIButton!
     @IBOutlet weak var dtExameField: UITextField!
     
+
+    
     var usuario = Usuario()
     var glicemia = Glicemia()
     var configuracao = Configuracao()
@@ -75,6 +77,7 @@ class RealizarExameViewController: UIViewController {
         } else {
             observacoesShow(false)
             observacaoField.text = ""
+            
         }
         
         if glicemia > 1 {
@@ -101,8 +104,13 @@ class RealizarExameViewController: UIViewController {
         df.dateFormat = "dd/MM/yyyy"
         
         var dtExame = Date()
-        if let dt = dtExameField.text {
-            dtExame = df.date(from: dt)!
+        
+        if dtExameField != nil {
+            if let dt = dtExameField.text  {
+                if dt != "" {
+                    dtExame = df.date(from: dt)!
+                }                
+            }
         }
         
         self.glicemia.configuracao = self.configuracao.id
@@ -148,5 +156,6 @@ class RealizarExameViewController: UIViewController {
         observacoesShow(false)
         adicionarBtnAtivado(false)
     }
-
+    
+    
 }

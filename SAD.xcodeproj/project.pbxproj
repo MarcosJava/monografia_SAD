@@ -25,6 +25,7 @@
 		1848E98A1DE1503800C5BC91 /* DadosFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848E9891DE1503800C5BC91 /* DadosFirebase.swift */; };
 		1848E98C1DE1504F00C5BC91 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848E98B1DE1504F00C5BC91 /* Firebase.swift */; };
 		184F33A21DDD4F6600867076 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 184F33A11DDD4F6600867076 /* LaunchScreen.storyboard */; };
+		185942601DF61BEF008AA1B1 /* TPKeyboardAvoiding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1859425F1DF61BEF008AA1B1 /* TPKeyboardAvoiding.framework */; };
 		185A57061DE3D32300B8FE79 /* ConfiguracaoFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185A57051DE3D32300B8FE79 /* ConfiguracaoFirebase.swift */; };
 		185A57081DE3D33100B8FE79 /* UsuarioFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185A57071DE3D33100B8FE79 /* UsuarioFirebase.swift */; };
 		185A570A1DE3D35200B8FE79 /* GlicemiaFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185A57091DE3D35200B8FE79 /* GlicemiaFirebase.swift */; };
@@ -102,6 +103,8 @@
 		1848E9891DE1503800C5BC91 /* DadosFirebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DadosFirebase.swift; sourceTree = "<group>"; };
 		1848E98B1DE1504F00C5BC91 /* Firebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
 		184F33A11DDD4F6600867076 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1859425F1DF61BEF008AA1B1 /* TPKeyboardAvoiding.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TPKeyboardAvoiding.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/SAD-dsfyhshgicjdoscjotbymjrxnlim/Build/Products/Debug-iphoneos/TPKeyboardAvoiding/TPKeyboardAvoiding.framework"; sourceTree = "<group>"; };
+		185942611DF61E27008AA1B1 /* -Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "-Bridging-Header.h"; sourceTree = "<group>"; };
 		185A57051DE3D32300B8FE79 /* ConfiguracaoFirebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfiguracaoFirebase.swift; sourceTree = "<group>"; };
 		185A57071DE3D33100B8FE79 /* UsuarioFirebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsuarioFirebase.swift; sourceTree = "<group>"; };
 		185A57091DE3D35200B8FE79 /* GlicemiaFirebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlicemiaFirebase.swift; sourceTree = "<group>"; };
@@ -152,6 +155,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				185942601DF61BEF008AA1B1 /* TPKeyboardAvoiding.framework in Frameworks */,
 				188533061DCB477100173434 /* RealmSwift.framework in Frameworks */,
 				823BCCBC0D022B5FDB8B4F0B /* Pods_SAD.framework in Frameworks */,
 			);
@@ -322,6 +326,7 @@
 				180DA6E01DD6A1C10080FB47 /* Images.xcassets */,
 				184F33A11DDD4F6600867076 /* LaunchScreen.storyboard */,
 				18D393381DDE7C7C0037FA33 /* Images-2.xcassets */,
+				185942611DF61E27008AA1B1 /* -Bridging-Header.h */,
 			);
 			path = SAD;
 			sourceTree = "<group>";
@@ -386,6 +391,7 @@
 		FD7CF237D6E6C78F1A7F2D13 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1859425F1DF61BEF008AA1B1 /* TPKeyboardAvoiding.framework */,
 				18BDB0361DDBA97400818DFC /* DatePickerDialog.framework */,
 				188533051DCB477100173434 /* RealmSwift.framework */,
 				18080BAA1DB85DD50040EF40 /* Marshal.framework */,

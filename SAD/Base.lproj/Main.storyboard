@@ -247,15 +247,15 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kys-AO-yTO">
-                                <rect key="frame" x="259" y="133" width="55" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kys-AO-yTO">
+                                <rect key="frame" x="225" y="133" width="134" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iDP-eT-v3Q">
-                                <rect key="frame" x="47" y="130" width="55" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iDP-eT-v3Q">
+                                <rect key="frame" x="16" y="130" width="134" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -301,7 +301,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XDP-d9-T7J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2649" y="93"/>
+            <point key="canvasLocation" x="2648.8000000000002" y="92.203898050974516"/>
         </scene>
         <!--Configuração-->
         <scene sceneID="9nj-KD-rZR">
@@ -564,12 +564,13 @@
                         <viewControllerLayoutGuide type="top" id="DHt-yV-sby"/>
                         <viewControllerLayoutGuide type="bottom" id="5XY-fN-IaR"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kkO-pv-uwB">
+                    <view key="view" contentMode="scaleToFill" id="kkO-pv-uwB" customClass="TPKeyboardAvoidingScrollView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Glicemia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWQ-6Y-2YC">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Glicemia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWQ-6Y-2YC">
                                 <rect key="frame" x="16" y="107" width="69" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -588,8 +589,9 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="120.30 dml/g" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZHn-3d-hJH">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="120.30 dml/g" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZHn-3d-hJH">
                                 <rect key="frame" x="93" y="107" width="241" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
@@ -625,12 +627,10 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" borderStyle="bezel" placeholder="comi legumes e muito chocolate" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yBl-gj-kps">
+                            <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="center" borderStyle="bezel" placeholder="comi legumes e muito chocolate" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yBl-gj-kps">
                                 <rect key="frame" x="16" y="370" width="343" height="155"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="155" id="9UZ-dl-abH"/>
-                                </constraints>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -657,8 +657,9 @@
                                     <action selector="adicionarBtnAction:" destination="aXl-95-XdC" eventType="touchUpInside" id="WEa-ib-Rp8"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Observação" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jsf-cu-0r9">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Observação" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jsf-cu-0r9">
                                 <rect key="frame" x="16" y="338" width="95" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -682,22 +683,9 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.13333333333333333" green="0.59215686274509804" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="yBl-gj-kps" firstAttribute="top" secondItem="Jsf-cu-0r9" secondAttribute="bottom" constant="8.5" id="EzP-Ir-d5O"/>
-                            <constraint firstItem="yBl-gj-kps" firstAttribute="centerX" secondItem="kkO-pv-uwB" secondAttribute="centerX" id="JKA-pf-h1Q"/>
-                            <constraint firstItem="yBl-gj-kps" firstAttribute="trailing" secondItem="kkO-pv-uwB" secondAttribute="trailingMargin" id="MQR-W0-qaR"/>
-                            <constraint firstItem="Jsf-cu-0r9" firstAttribute="leading" secondItem="kkO-pv-uwB" secondAttribute="leadingMargin" id="Msx-Zr-22h"/>
-                            <constraint firstItem="Jsf-cu-0r9" firstAttribute="top" secondItem="ZHn-3d-hJH" secondAttribute="bottom" constant="201" id="PF0-cY-AB2"/>
-                            <constraint firstItem="LWQ-6Y-2YC" firstAttribute="top" secondItem="DHt-yV-sby" secondAttribute="bottom" constant="43" id="ck6-uk-udd"/>
-                            <constraint firstItem="LWQ-6Y-2YC" firstAttribute="leading" secondItem="kkO-pv-uwB" secondAttribute="leadingMargin" id="dfc-bc-IsR"/>
-                            <constraint firstItem="ZHn-3d-hJH" firstAttribute="leading" secondItem="LWQ-6Y-2YC" secondAttribute="trailing" constant="8" id="gcH-Ip-Fch"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ZHn-3d-hJH" secondAttribute="trailing" constant="25" id="lY7-1i-jgP"/>
-                            <constraint firstItem="ZHn-3d-hJH" firstAttribute="top" secondItem="DHt-yV-sby" secondAttribute="bottom" constant="43" id="mw1-RA-Q1n"/>
-                            <constraint firstItem="yBl-gj-kps" firstAttribute="leading" secondItem="kkO-pv-uwB" secondAttribute="leadingMargin" id="vgx-nU-0CY"/>
-                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="adicionarBtn" destination="G5q-wX-owF" id="zUa-th-Qme"/>
+                        <outlet property="adicionarBtn" destination="G5q-wX-owF" id="jmT-dA-vq3"/>
                         <outlet property="dtExameField" destination="cEM-PO-URY" id="ssX-WK-PoK"/>
                         <outlet property="glicemiaField" destination="ZHn-3d-hJH" id="gCc-SN-F6O"/>
                         <outlet property="observacaoField" destination="yBl-gj-kps" id="fdz-na-hXm"/>
@@ -887,6 +875,6 @@
         <image name="up_red.png" width="180" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7El-4C-HLe"/>
+        <segue reference="OqU-cl-eiN"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -33,6 +33,7 @@ PODS:
   - Realm/Headers (2.0.3)
   - RealmSwift (2.0.3):
     - Realm (= 2.0.3)
+  - TPKeyboardAvoiding (1.3)
 
 DEPENDENCIES:
   - Charts (from `https://github.com/danielgindi/Charts.git`, branch `master`)
@@ -41,6 +42,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Marshal (from `https://github.com/utahiosmac/Marshal.git`)
   - RealmSwift
+  - TPKeyboardAvoiding
 
 EXTERNAL SOURCES:
   Charts:
@@ -71,7 +73,8 @@ SPEC CHECKSUMS:
   Marshal: 1cfdb9bffc040714fba95e3782cbfc15c44adabd
   Realm: 5f008bfe3c8c47142eddfc30b8c1584cde22db24
   RealmSwift: 5afb451f65b682242f272dbb52d5c6f6e343c980
+  TPKeyboardAvoiding: a5138f318c06fb3e151f886e18ce4a72695d9cbe
 
-PODFILE CHECKSUM: a4961cb33d6d0d9d3666fe216f677ac6c4e9e1c3
+PODFILE CHECKSUM: a188512327e5faeaa58f88d8b88b65131bc30cf4
 
 COCOAPODS: 1.1.0

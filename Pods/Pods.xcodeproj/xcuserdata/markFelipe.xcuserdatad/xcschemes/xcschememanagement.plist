@@ -39,10 +39,20 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>TPKeyboardAvoiding.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>523243ABF3FE5AA61BC487350F672346</key>
+		<key>0BFBC0E659EC5DA9A51D96251BA8B6A1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1AF47CC7C97F3973EC77958122361EB1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,7 +72,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C6A1D034226248025A64771CED20D6A9</key>
+		<key>A1BE6562C8BDCBBF6B82823146A87120</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,7 +82,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E6CF0A000B39E4AE5CFB616238A16FC1</key>
+		<key>FC3BB715C1C1718E8E719C6A03174BAD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
