@@ -26,6 +26,8 @@
 		1848E98C1DE1504F00C5BC91 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848E98B1DE1504F00C5BC91 /* Firebase.swift */; };
 		184F33A21DDD4F6600867076 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 184F33A11DDD4F6600867076 /* LaunchScreen.storyboard */; };
 		185942601DF61BEF008AA1B1 /* TPKeyboardAvoiding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1859425F1DF61BEF008AA1B1 /* TPKeyboardAvoiding.framework */; };
+		185942711DF65D52008AA1B1 /* menu_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1859426F1DF65D52008AA1B1 /* menu_icon.png */; };
+		185942721DF65D52008AA1B1 /* dashboard_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 185942701DF65D52008AA1B1 /* dashboard_icon.png */; };
 		185A57061DE3D32300B8FE79 /* ConfiguracaoFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185A57051DE3D32300B8FE79 /* ConfiguracaoFirebase.swift */; };
 		185A57081DE3D33100B8FE79 /* UsuarioFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185A57071DE3D33100B8FE79 /* UsuarioFirebase.swift */; };
 		185A570A1DE3D35200B8FE79 /* GlicemiaFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185A57091DE3D35200B8FE79 /* GlicemiaFirebase.swift */; };
@@ -105,6 +107,8 @@
 		184F33A11DDD4F6600867076 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1859425F1DF61BEF008AA1B1 /* TPKeyboardAvoiding.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TPKeyboardAvoiding.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/SAD-dsfyhshgicjdoscjotbymjrxnlim/Build/Products/Debug-iphoneos/TPKeyboardAvoiding/TPKeyboardAvoiding.framework"; sourceTree = "<group>"; };
 		185942611DF61E27008AA1B1 /* -Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "-Bridging-Header.h"; sourceTree = "<group>"; };
+		1859426F1DF65D52008AA1B1 /* menu_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_icon.png; sourceTree = "<group>"; };
+		185942701DF65D52008AA1B1 /* dashboard_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dashboard_icon.png; sourceTree = "<group>"; };
 		185A57051DE3D32300B8FE79 /* ConfiguracaoFirebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfiguracaoFirebase.swift; sourceTree = "<group>"; };
 		185A57071DE3D33100B8FE79 /* UsuarioFirebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsuarioFirebase.swift; sourceTree = "<group>"; };
 		185A57091DE3D35200B8FE79 /* GlicemiaFirebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlicemiaFirebase.swift; sourceTree = "<group>"; };
@@ -217,6 +221,7 @@
 		180DA6D31DD698400080FB47 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				185942621DF65B5E008AA1B1 /* iconNavigation */,
 				1815BA0A1DF30868008CED50 /* icon_pendencia.png */,
 				18CA7F6B1DE5893D00B34821 /* arrows */,
 				18D393301DDE7ADE0037FA33 /* Icon-App-60x60@2x.png */,
@@ -261,6 +266,15 @@
 				1848E98B1DE1504F00C5BC91 /* Firebase.swift */,
 			);
 			name = Service;
+			sourceTree = "<group>";
+		};
+		185942621DF65B5E008AA1B1 /* iconNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				1859426F1DF65D52008AA1B1 /* menu_icon.png */,
+				185942701DF65D52008AA1B1 /* dashboard_icon.png */,
+			);
+			name = iconNavigation;
 			sourceTree = "<group>";
 		};
 		185A57021DE3D2F200B8FE79 /* DTOService */ = {
@@ -535,8 +549,10 @@
 				18D393371DDE7C3B0037FA33 /* Icon-App-29x29@3x.png in Resources */,
 				18D393291DDE6E0A0037FA33 /* LaunchScreen.png in Resources */,
 				180DA6E11DD6A1C10080FB47 /* Images.xcassets in Resources */,
+				185942721DF65D52008AA1B1 /* dashboard_icon.png in Resources */,
 				18A262D31DB830FA002E32A2 /* Assets.xcassets in Resources */,
 				184F33A21DDD4F6600867076 /* LaunchScreen.storyboard in Resources */,
+				185942711DF65D52008AA1B1 /* menu_icon.png in Resources */,
 				18D3932E1DDE70910037FA33 /* iconSAD120x120.png in Resources */,
 				18CA7F6F1DE5893D00B34821 /* up_red.png in Resources */,
 				1815BA121DF34419008CED50 /* DetalheExameViewController.xib in Resources */,
